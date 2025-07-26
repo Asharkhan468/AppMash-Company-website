@@ -1,0 +1,117 @@
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <div className="w-full bg-gradient1 shadow-lg p-0">
+      {/* Mobile Header (visible only on mobile) */}
+      <div className="md:hidden flex justify-between items-center px-4 py-3 bg-primary2">
+        <div className="relative h-10 w-10 bg-gradient-to-br from-white via-gray-400 to-black">
+          <Image
+            src="/appmashLogo.jpg"
+            alt="Logo"
+            fill
+            className="object-contain p-1"
+          />
+        </div>
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="text-white focus:outline-none"
+        >
+          <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} className="h-6 w-6" />
+        </button>
+      </div>
+
+      {/* Desktop Header (hidden on mobile) */}
+      <div className="hidden md:flex w-full h-20">
+        {/* Logo Section */}
+        <div className="w-48 flex justify-center items-center px-5">
+          <div className="relative h-16 w-[140px]">
+            <Image
+              src="/appmashLogo.png"
+              alt="Logo"
+              fill
+              className="object-contain p-1"
+            />
+          </div>
+        </div>
+
+        {/* Navbar Section */}
+        <nav className="flex-1 bg-primary2 text-white rounded-tl-3xl flex items-center">
+          <div className="w-full max-w-[1300px] mx-auto px-4 md:px-6 lg:px-8">
+            <div className="flex items-center justify-between w-full h-20">
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center space-x-10">
+                {["Home", "About Us", "Testimonial", "Portfolio", "Blog", "Content"].map((item) => (
+                  <Link
+                    key={item}
+                    href={`/${item === "Home" ? "" : item.toLowerCase().replace(/\s/g, "")}`}
+                    className="hover:text-gray-200 transition"
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Contact & CTA Desktop */}
+              <div className="hidden md:flex items-center space-x-4">
+                <div className="flex flex-col">
+                  <span className="text-black text-md text-center font-semibold mb-1">
+                    Talk with Us
+                  </span>
+                  <div className="flex items-center">
+                    <FontAwesomeIcon
+                      icon={faPhone}
+                      className="text-white w-5 h-5 mr-2"
+                    />
+                    <span className="text-md text-white">+123 456 7890</span>
+                  </div>
+                </div>
+                <button className="bg-red-800 shadow-2xl text-white px-5 py-3 rounded-md transition">
+                  Get a Quote
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      {/* Mobile Navigation Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-gradient1 text-white">
+          <div className="px-6 py-8 space-y-6">
+            {["Home", "About Us", "Testimonial", "Portfolio", "Blog", "Content"].map((item) => (
+              <Link
+                key={item}
+                href={`/${item === "Home" ? "" : item.toLowerCase().replace(/\s/g, "")}`}
+                className="block text-xl font-medium hover:text-gray-300 transition py-2 border-b border-gray-700"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item}
+              </Link>
+            ))}
+
+            {/* Contact Info & CTA Mobile */}
+            <div className="mt-8 space-y-4">
+              <div className="flex items-center justify-center">
+                <FontAwesomeIcon icon={faPhone} className="text-white w-5 h-5 mr-3" />
+                <span className="text-lg">+123 456 7890</span>
+              </div>
+              <button className="bg-red-800 hover:bg-red-700 text-white px-6 py-3 rounded-lg w-full text-center transition transform hover:scale-105 text-lg font-semibold">
+                Get a Quote
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Navbar;
