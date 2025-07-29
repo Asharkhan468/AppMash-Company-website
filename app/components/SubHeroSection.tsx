@@ -70,7 +70,7 @@ function SubHeroSection() {
   const { heading1, heading2, description, image } = subSlides[index];
 
   return (
-    <section className="relative w-full flex items-center overflow-hidden pt-6 sm:pt-8 pb-8 sm:pb-12">
+    <section className="relative bg-neutral2 w-full flex items-center overflow-hidden pt-6 sm:pt-8 pb-8 sm:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Top Center Button & Heading */}
         <div className="text-center mb-8 sm:mb-12 mt-4">
