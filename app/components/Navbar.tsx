@@ -9,12 +9,12 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="w-full bg-gradient1 shadow-lg p-0">
+    <div className="w-full bg-gradient1 shadow-lg p-0 sticky top-0 z-50 ">
       {/* Mobile Header (visible only on mobile) */}
-      <div className="md:hidden flex justify-between items-center px-4 py-3 bg-primary2">
-        <div className="relative h-10 w-10 bg-gradient-to-br from-white via-gray-400 to-black">
+      <div className="md:hidden flex justify-between items-center px-8 py-3 bg-primary2 pl-6 ">
+        <div className="relative h-20 w-20 to-black">
           <Image
-            src="/appmashLogo.jpg"
+            src="/appmashLogo.png"
             alt="Logo"
             fill
             className="object-contain p-1"
@@ -29,7 +29,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Header (hidden on mobile) */}
-      <div className="hidden md:flex w-full h-20">
+      <div className="hidden md:flex w-full h-20 mr-14">
         {/* Logo Section */}
         <div className="w-48 flex justify-center items-center px-5">
           <div className="relative h-16 w-[140px]">
@@ -43,8 +43,8 @@ const Navbar = () => {
         </div>
 
         {/* Navbar Section */}
-        <nav className="flex-1 bg-primary2 text-white rounded-tl-3xl flex items-center">
-          <div className="w-full max-w-[1300px] mx-auto px-4 md:px-6 lg:px-8">
+        <nav className="flex-1 bg-primary2 text-white rounded-tl-3xl  flex items-center">
+          <div className="w-full max-w-[1300px] mx-auto px-12 md:px-12 lg:px-8">
             <div className="flex items-center justify-between w-full h-20">
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-10">
@@ -111,6 +111,12 @@ const Navbar = () => {
         </div>
       )}
     </div>
+
+
+   
+
+
+    
   );
 };
 
