@@ -3,6 +3,7 @@ import HeroSection from "./components/Hero";
 import SubHeroSection from "./components/SubHeroSection";
 import WhyUsSection from "./components/WhyChooseUsSection";
 import OurTeam from "./components/OurTeam";
+import Testimonials from "./components/Testimonials";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <SubHeroSection />
       <WhyUsSection />
       <OurTeam />
+      <Testimonials />
 
 
     </div>
