@@ -1,14 +1,14 @@
 import Image from "next/image";
 import HeroSection from "./components/Hero";
 import SubHeroSection from "./components/SubHeroSection";
-import Section from "./components/WhyChooseUsSection";
+import WhyUsSection from "./components/WhyChooseUsSection";
 
 export default function Home() {
   return (
     <div className="mt-0.2">
       <HeroSection />
       <SubHeroSection />
-      <Section />
+      <WhyUsSection />
 
     </div>
   );
