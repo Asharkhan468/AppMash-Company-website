@@ -2,6 +2,7 @@ import Image from "next/image";
 import HeroSection from "./components/Hero";
 import SubHeroSection from "./components/SubHeroSection";
 import WhyUsSection from "./components/WhyChooseUsSection";
+import OurTeam from "./components/OurTeam";
 
 export default function Home() {
   return (
@@ -9,6 +10,8 @@ export default function Home() {
       <HeroSection />
       <SubHeroSection />
       <WhyUsSection />
+      <OurTeam />
+
 
     </div>
   );
