@@ -4,6 +4,7 @@ import SubHeroSection from "./components/SubHeroSection";
 import WhyUsSection from "./components/WhyChooseUsSection";
 import OurTeam from "./components/OurTeam";
 import Testimonials from "./components/Testimonials";
+import Portfolio from "./components/Portfolio";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <WhyUsSection />
       <OurTeam />
       <Testimonials />
+      <Portfolio />
 
 
     </div>
