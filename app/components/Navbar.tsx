@@ -4,9 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import GetStartedForm from "./GetQuoteForm";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowForm(true);
+  };
 
   return (
     <div className="w-full bg-gradient1 shadow-lg p-0 sticky top-0 z-50 ">
@@ -24,7 +30,10 @@ const Navbar = () => {
           onClick={() => setMenuOpen(!menuOpen)}
           className="text-white focus:outline-none"
         >
-          <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} className="h-6 w-6" />
+          <FontAwesomeIcon
+            icon={menuOpen ? faTimes : faBars}
+            className="h-6 w-6"
+          />
         </button>
       </div>
 
@@ -43,15 +52,26 @@ const Navbar = () => {
         </div>
 
         {/* Navbar Section */}
-        <nav className="flex-1 bg-primary2 text-white rounded-tl-3xl  flex items-center">
+        <nav className="flex-1 bg-primary2 text-secondary1 rounded-tl-3xl  flex items-center">
           <div className="w-full max-w-[1300px] mx-auto px-12 md:px-12 lg:px-8">
             <div className="flex items-center justify-between w-full h-20">
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-10">
-                {["Home", "About Us", "Testimonial", "Portfolio", "Blog", "Content"].map((item) => (
+                {[
+                  "Home",
+                  "About Us",
+                  "Testimonial",
+                  "Portfolio",
+                  "Blog",
+                  "Content",
+                ].map((item) => (
                   <Link
                     key={item}
-                    href={`/${item === "Home" ? "" : item.toLowerCase().replace(/\s/g, "")}`}
+                    href={`/${
+                      item === "Home"
+                        ? ""
+                        : item.toLowerCase().replace(/\s/g, "")
+                    }`}
                     className="hover:text-gray-200 transition"
                   >
                     {item}
@@ -68,28 +88,65 @@ const Navbar = () => {
                   <div className="flex items-center">
                     <FontAwesomeIcon
                       icon={faPhone}
-                      className="text-white w-5 h-5 mr-2"
+                      className="text-secondary1 w-5 h-5 mr-2"
                     />
                     <span className="text-md text-white">+123 456 7890</span>
                   </div>
                 </div>
-                <button className="bg-red-800 shadow-2xl text-white px-5 py-3 rounded-md transition">
+                <button
+                  onClick={handleButtonClick}
+                  className="bg-red-800 shadow-2xl text-secondary1 px-5 py-3 rounded-md transition"
+                >
                   Get a Quote
                 </button>
               </div>
             </div>
           </div>
         </nav>
+
+        {showForm && (
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-[9999] p-4">
+            {/* Main Form Container */}
+            <div
+              className="relative w-full max-w-2xl bg-secondary1 rounded-xl shadow-2xl overflow-y-auto"
+              style={{ maxHeight: "95vh" }}
+            >
+              {/* Extra Large Red Close Button */}
+              <button
+                onClick={() => setShowForm(false)}
+                className="absolute top-4 right-4 z-10 cursor-pointer text-primary1 hover:text-primary2 text-6xl font-bold transition-colors duration-200 focus:outline-none"
+                style={{ width: "60px", height: "60px", lineHeight: "60px" }}
+                aria-label="Close form"
+              >
+                &times;
+              </button>
+
+              {/* Form Content */}
+              <div className="p-6 md:p-8 w-full">
+                <GetStartedForm />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Mobile Navigation Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-gradient1 text-white">
+        <div className="md:hidden bg-gradient1 text-secondary1">
           <div className="px-6 py-8 space-y-6">
-            {["Home", "About Us", "Testimonial", "Portfolio", "Blog", "Content"].map((item) => (
+            {[
+              "Home",
+              "About Us",
+              "Testimonial",
+              "Portfolio",
+              "Blog",
+              "Content",
+            ].map((item) => (
               <Link
                 key={item}
-                href={`/${item === "Home" ? "" : item.toLowerCase().replace(/\s/g, "")}`}
+                href={`/${
+                  item === "Home" ? "" : item.toLowerCase().replace(/\s/g, "")
+                }`}
                 className="block text-xl font-medium hover:text-gray-300 transition py-2 border-b border-gray-700"
                 onClick={() => setMenuOpen(false)}
               >
@@ -100,10 +157,13 @@ const Navbar = () => {
             {/* Contact Info & CTA Mobile */}
             <div className="mt-8 space-y-4">
               <div className="flex items-center justify-center">
-                <FontAwesomeIcon icon={faPhone} className="text-white w-5 h-5 mr-3" />
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  className="text-secondary1 w-5 h-5 mr-3"
+                />
                 <span className="text-lg">+123 456 7890</span>
               </div>
-              <button className="bg-red-800 hover:bg-red-700 text-white px-6 py-3 rounded-lg w-full text-center transition transform hover:scale-105 text-lg font-semibold">
+              <button className="bg-red-800 hover:bg-red-700 text-secondary1 px-6 py-3 rounded-lg w-full text-center transition transform hover:scale-105 text-lg font-semibold">
                 Get a Quote
               </button>
             </div>
@@ -111,12 +171,6 @@ const Navbar = () => {
         </div>
       )}
     </div>
-
-
-   
-
-
-    
   );
 };
 

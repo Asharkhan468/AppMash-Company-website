@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import 'react-phone-number-input/style.css';
 
 /* :root {
   --background: #ffffff;
@@ -46,4 +47,19 @@ body {
 
 .clip-top-left {
   clip-path: circle(75% at 0% 0%);
+}
+
+
+/* Remove library's default input style */
+.PhoneInputInput {
+  @apply w-full border-none focus:ring-0 focus:outline-none;
+}
+
+/* Style the flag selector */
+.PhoneInputCountry {
+  @apply mr-2;
+}
+
+.PhoneInput {
+  @apply flex items-center border border-gray-300 rounded-md px-3 py-2 shadow-sm focus-within:ring-2 focus-within:ring-blue-500;
 }
