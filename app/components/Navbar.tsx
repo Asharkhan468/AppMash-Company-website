@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import GetStartedForm from "./GetQuoteForm";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,6 +13,27 @@ const Navbar = () => {
 
   const handleButtonClick = () => {
     setShowForm(true);
+  };
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const menu = [
+    { name: "Home", type: "page", path: "/" },
+    { name: "About Us", type: "section", id: "aboutus" },
+    { name: "Testimonial", type: "section", id: "testimonial" },
+    { name: "Portfolio", type: "section", id: "portfolio" },
+    { name: "Blog", type: "page", path: "/blog" },
+    { name: "Contact", type: "page", path: "/content" },
+  ];
+
+  const handleClick = (e: any, item: any) => {
+    if (item.type === "section" && pathname === "/") {
+      e.preventDefault();
+      const el = document.getElementById(item.id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   };
 
   return (
@@ -57,53 +79,47 @@ const Navbar = () => {
             <div className="flex items-center justify-between w-full h-20">
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-10">
-                {[
-                  "Home",
-                  "About Us",
-                  "Testimonial",
-                  "Portfolio",
-                  "Blog",
-                  "Content",
-                ].map((item) => (
-                  <Link
-                    key={item}
-                    href={`/${
-                      item === "Home"
-                        ? ""
-                        : item.toLowerCase().replace(/\s/g, "")
-                    }`}
-                    className="hover:text-gray-200 transition"
-                  >
-                    {item}
-                  </Link>
-                ))}
+                {menu.map((item) =>
+                  item.type === "section" || item.path ? (
+                    <Link
+                      key={item.name}
+                      href={
+                        item.type === "section" ? `/#${item.id}` : item.path!
+                      }
+                      scroll={item.type === "section" ? false : true}
+                      onClick={(e) => handleClick(e, item)}
+                      className="hover:text-gray-200 transition"
+                    >
+                      {item.name}
+                    </Link>
+                  ) : null
+                )}
               </div>
 
               {/* Contact & CTA Desktop */}
-             <div className="hidden md:flex items-center space-x-6">
-  {/* Talk with Us + Number */}
-  <div className="flex flex-col items-end text-right">
-    <span className="text-black text-md font-semibold mb-1">
-      Talk with Us
-    </span>
-    <div className="flex items-center justify-end w-full">
-      <FontAwesomeIcon
-        icon={faPhone}
-        className="text-secondary1 w-5 h-5 mr-2"
-      />
-      <span className="text-md text-white">+123 456 7890</span>
-    </div>
-  </div>
+              <div className="hidden md:flex items-center space-x-6">
+                {/* Talk with Us + Number */}
+                <div className="flex flex-col items-end text-right">
+                  <span className="text-black text-md font-semibold mb-1">
+                    Talk with Us
+                  </span>
+                  <div className="flex items-center justify-end w-full">
+                    <FontAwesomeIcon
+                      icon={faPhone}
+                      className="text-secondary1 w-5 h-5 mr-2"
+                    />
+                    <span className="text-md text-white">+123 456 7890</span>
+                  </div>
+                </div>
 
-  {/* Button */}
-  <button
-    onClick={handleButtonClick}
-    className="bg-red-800 shadow-2xl text-secondary1 px-5 py-3 rounded-md transition"
-  >
-    Get a Quote
-  </button>
-</div>
-
+                {/* Button */}
+                <button
+                  onClick={handleButtonClick}
+                  className="bg-red-800 shadow-2xl text-secondary1 px-5 py-3 rounded-md transition"
+                >
+                  Get a Quote
+                </button>
+              </div>
             </div>
           </div>
         </nav>

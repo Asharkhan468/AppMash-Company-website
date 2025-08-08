@@ -45,6 +45,18 @@ function Testimonials() {
 
   const { name, position, text, image } = testimonials[currentIndex]
 
+  
+  
+    useEffect(() => {
+      if (window.location.hash) {
+        const id = window.location.hash.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }, []);
+
   return (
     <section id='testimonial' className="relative w-full flex items-center overflow-hidden pt-6 sm:pt-8 pb-8 sm:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">

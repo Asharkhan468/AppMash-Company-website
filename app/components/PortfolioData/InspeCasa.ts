@@ -5,7 +5,8 @@ const InspeCasa = [
     heading: "InspeCasa",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
     image: "/inspecasa-mobile-1.png",
-    bgImage: "/bg-4.png"
+    bgImage: "/bg-4.png",
+    hero:true,
   },
   {
     type: "mobile",
@@ -13,7 +14,8 @@ const InspeCasa = [
     heading: "Onboarding Screen",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
     image: "/inspecasa-mobile-2.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "mobile",
@@ -21,7 +23,8 @@ const InspeCasa = [
     heading: "Onboarding Screen",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
     image: "/inspecasa-mobile-3.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "mobile",
@@ -29,7 +32,8 @@ const InspeCasa = [
     heading: "Onboarding Screen",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
     image: "/inspecasa-mobile-4.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "mobile",
@@ -37,7 +41,8 @@ const InspeCasa = [
     heading: "Login & Sign up",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
     image: "/inspecasa-mobile-5.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "mobile",
@@ -45,7 +50,8 @@ const InspeCasa = [
     heading: "Home Screen",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
     image: "/inspecasa-mobile-6.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "mobile",
@@ -53,7 +59,8 @@ const InspeCasa = [
     heading: "Services All View",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
     image: "/inspecasa-mobile-7.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "mobile",
@@ -61,7 +68,8 @@ const InspeCasa = [
     heading: "Reviews & Create Services",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
     image: "/inspecasa-mobile-8.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "mobile",
@@ -69,7 +77,8 @@ const InspeCasa = [
     heading: "Contact & Create Contact",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
     image: "/inspecasa-mobile-9.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
 
   
@@ -79,7 +88,8 @@ const InspeCasa = [
     heading: "Login Page",
     description: "Login to manage user monitor booking and control with authorize Access",
     image: "/inspecasa-laptop-1.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "laptop",
@@ -87,7 +97,8 @@ const InspeCasa = [
     heading: "Dashboard Page",
     description: "Track service activity monitor booking check user stats and manage everything from one powerful dashboard",
     image: "/inspecasa-laptop-2.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "laptop",
@@ -95,7 +106,8 @@ const InspeCasa = [
     heading: "Categories Page",
     description: "Login to manage user monitor booking and control with authorize Access",
     image: "/inspecasa-laptop-3.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "laptop",
@@ -103,7 +115,8 @@ const InspeCasa = [
     heading: "User Page",
     description: "Track service activity monitor booking check user stats and manage everything from one powerful dashboard",
     image: "/inspecasa-laptop-4.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "laptop",
@@ -111,7 +124,8 @@ const InspeCasa = [
     heading: "Booking Page",
     description: "Login to manage user monitor booking and control with authorize Access",
     image: "/inspecasa-laptop-5.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "laptop",
@@ -119,7 +133,8 @@ const InspeCasa = [
     heading: "Services Page",
     description: "Track service activity monitor booking check user stats and manage everything from one powerful dashboard",
     image: "/inspecasa-laptop-6.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "laptop",
@@ -127,7 +142,8 @@ const InspeCasa = [
     heading: "Services Full View Page",
     description: "Login to manage user monitor booking and control with authorize Access",
     image: "/inspecasa-laptop-7.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   {
     type: "laptop",
@@ -135,7 +151,8 @@ const InspeCasa = [
     heading: "Service Reviews Page",
     description: "Track service activity monitor booking check user stats and manage everything from one powerful dashboard",
     image: "/inspecasa-laptop-8.png",
-    bgImage: "/bg-2.png"
+    bgImage: "/bg-2.png",
+    hero:false,
   },
   
 ];

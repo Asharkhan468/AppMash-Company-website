@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation";
 import dataMap from "../../components/dataMap";
-import PortfolioPreview1 from "@/app/components/PortfolioPreview3";
+import PortfolioPreview1 from "@/app/components/PortfolioPreview1";
 import PortfolioPreview2 from "@/app/components/PortfolioPreview2";
 import LaptopPreview from "@/app/components/LaptopPreview";
 import LaptopPreviewRight from "@/app/components/LaptopPreviewRight";

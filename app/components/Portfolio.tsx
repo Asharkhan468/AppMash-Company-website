@@ -4,7 +4,7 @@ import Image from "next/image";
 import image1 from "../../public/project-1.png";
 import image2 from "../../public/project-2.png";
 import image3 from "../../public/project-3.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 
@@ -41,6 +41,17 @@ const portfolioCards = [
 export default function PortfolioSection() {
   const [selectedCard, setSelectedCard] = useState(null);
   const router = useRouter();
+
+
+  useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
   return (
     <section id="portfolio" className="relative bg-neutral2 w-full flex flex-col items-center overflow-hidden pt-6 sm:pt-8 pb-8 sm:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
