@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={monda.className}>
-      <body className="antialiased">
+      <body className="antialiased scroll-smooth">
         <Navbar />
         {children}
         <Footer />

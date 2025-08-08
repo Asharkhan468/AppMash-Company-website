@@ -48,6 +48,9 @@ body {
 .clip-top-left {
   clip-path: circle(75% at 0% 0%);
 }
+html {
+  scroll-behavior: smooth;
+}
 
 
 /* Remove library's default input style */

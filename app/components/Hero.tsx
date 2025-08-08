@@ -73,7 +73,8 @@ export default function HeroCarousel() {
   const { title, subtitle, description, image } = slides[index];
 
   return (
-    <section className="relative w-full flex items-center overflow-hidden pt-4 sm:pt-6 pb-6 sm:pb-8">
+   <section className="relative w-full min-h-screen flex items-center overflow-hidden pt-4 sm:pt-6 pb-6 sm:pb-8">
+
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary2/40 via-black to-primary2/20 z-0" />
 

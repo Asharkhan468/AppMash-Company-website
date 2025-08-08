@@ -91,7 +91,7 @@ export default function OurTeam() {
   const visibleTeam = team.slice(currentIndex, currentIndex + visibleCards);
 
   return (
-    <section className="relative bg-neutral2 w-full pt-6 sm:pt-8 pb-8 sm:pb-12 overflow-hidden">
+    <section id="aboutus" className="relative bg-neutral2 w-full pt-6 sm:pt-8 pb-8 sm:pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Heading */}
         <div className="text-center mb-8 sm:mb-12 mt-4">

@@ -4,28 +4,45 @@ import Image from "next/image";
 import image1 from "../../public/project-1.png";
 import image2 from "../../public/project-2.png";
 import image3 from "../../public/project-3.png";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 const portfolioCards = [
   {
+    id: "1",
     category: "Property Projects",
     title: "InspeCasa",
     image: image1,
+    bg: "/bg-1.png",
+    description: "Full details about InspeCasa project go here..."
   },
   {
-    category: "Film Making Project",
-    title: "REELConnect",
-    image: image2,
-  },
-  {
+    id: "2",
     category: "All Services",
     title: "MYSUTRA",
-    image: image3,
+    image: image2,
+    bg: "/bg-2.png",
+    description: "Full details about REELConnect project go here..."
   },
+  {
+    id: "3",
+    category: "Film Making Project",
+    title: "REELConnect",
+    image: image3,
+    bg: "/bg-3.png",
+    description: "Full details about MYSUTRA project go here..."
+  }
 ];
 
+  
+
+
 export default function PortfolioSection() {
+  const [selectedCard, setSelectedCard] = useState(null);
+  const router = useRouter();
   return (
-    <section className="relative bg-neutral2 w-full flex flex-col items-center overflow-hidden pt-6 sm:pt-8 pb-8 sm:pb-12">
+    <section id="portfolio" className="relative bg-neutral2 w-full flex flex-col items-center overflow-hidden pt-6 sm:pt-8 pb-8 sm:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Top Center Button & Heading */}
         <div className="text-center mb-8 sm:mb-6 mt-4">
@@ -95,7 +112,7 @@ export default function PortfolioSection() {
                   </h3>
                 </div>
 
-                <div className="text-white">
+                <div  onClick={() => router.push(`/portfolio/${card.id}`)} className="text-white">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"

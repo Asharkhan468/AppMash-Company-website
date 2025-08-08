@@ -80,26 +80,30 @@ const Navbar = () => {
               </div>
 
               {/* Contact & CTA Desktop */}
-              <div className="hidden md:flex items-center space-x-4">
-                <div className="flex flex-col">
-                  <span className="text-black text-md text-center font-semibold mb-1">
-                    Talk with Us
-                  </span>
-                  <div className="flex items-center">
-                    <FontAwesomeIcon
-                      icon={faPhone}
-                      className="text-secondary1 w-5 h-5 mr-2"
-                    />
-                    <span className="text-md text-white">+123 456 7890</span>
-                  </div>
-                </div>
-                <button
-                  onClick={handleButtonClick}
-                  className="bg-red-800 shadow-2xl text-secondary1 px-5 py-3 rounded-md transition"
-                >
-                  Get a Quote
-                </button>
-              </div>
+             <div className="hidden md:flex items-center space-x-6">
+  {/* Talk with Us + Number */}
+  <div className="flex flex-col items-end text-right">
+    <span className="text-black text-md font-semibold mb-1">
+      Talk with Us
+    </span>
+    <div className="flex items-center justify-end w-full">
+      <FontAwesomeIcon
+        icon={faPhone}
+        className="text-secondary1 w-5 h-5 mr-2"
+      />
+      <span className="text-md text-white">+123 456 7890</span>
+    </div>
+  </div>
+
+  {/* Button */}
+  <button
+    onClick={handleButtonClick}
+    className="bg-red-800 shadow-2xl text-secondary1 px-5 py-3 rounded-md transition"
+  >
+    Get a Quote
+  </button>
+</div>
+
             </div>
           </div>
         </nav>
