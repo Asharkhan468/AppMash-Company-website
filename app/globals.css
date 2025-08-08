@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import 'react-phone-number-input/style.css';
+@import "react-phone-number-input/style.css";
 
 /* :root {
   --background: #ffffff;
@@ -11,22 +11,21 @@
   --foreground: #ededed; /* ✅ Force Dark Text */
 }
 
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
- --font-monda:var(--font-monda);
+  --font-monda: var(--font-monda);
 }
 @theme {
   --color-primary1: #d0363c;
   --color-primary2: #b32724;
   --color-neutral1: #292b30;
   --color-neutral2: #000000;
+  --color-neutral3: #292929;
   --color-secondary1: #ffffff;
   --color-secondary2: #f9f9f9;
-  --color-gradient1:#3E0204;
+  --color-gradient1: #3e0204;
 }
-
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -38,7 +37,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Monda', sans-serif;
+  font-family: "Monda", sans-serif;
 }
 /* Add these in globals.css */
 .clip-bottom-right {
@@ -51,7 +50,6 @@ body {
 html {
   scroll-behavior: smooth;
 }
-
 
 /* Remove library's default input style */
 .PhoneInputInput {

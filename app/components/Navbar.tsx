@@ -23,7 +23,7 @@ const Navbar = () => {
     { name: "Testimonial", type: "section", id: "testimonial" },
     { name: "Portfolio", type: "section", id: "portfolio" },
     { name: "Blog", type: "section", id: "blog" },
-    { name: "Contact", type: "page", path: "/content" },
+    { name: "Contact", type: "page", path: "/contact" },
   ];
 
   const handleClick = (e: any, item: any) => {
