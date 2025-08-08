@@ -22,7 +22,7 @@ const Navbar = () => {
     { name: "About Us", type: "section", id: "aboutus" },
     { name: "Testimonial", type: "section", id: "testimonial" },
     { name: "Portfolio", type: "section", id: "portfolio" },
-    { name: "Blog", type: "page", path: "/blog" },
+    { name: "Blog", type: "section", id: "blog" },
     { name: "Contact", type: "page", path: "/content" },
   ];
 
@@ -160,7 +160,7 @@ const Navbar = () => {
               "Testimonial",
               "Portfolio",
               "Blog",
-              "Content",
+              "Contact",
             ].map((item) => (
               <Link
                 key={item}
