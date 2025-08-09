@@ -1,9 +1,13 @@
 import BlogPage from "@/app/components/BlogFullView";
 import { blogs } from "@/data/blogData";
 
-export default function BlogDetails(params: {
+interface PageProps {
+  params: {
     id: string;
-  }) {
+  };
+}
+
+export default function BlogDetails({ params }: PageProps) {
   const blog = blogs.find((b) => b.id === params.id);
 
   if (!blog) {
