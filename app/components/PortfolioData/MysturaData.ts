@@ -5,7 +5,7 @@ const mysturaData = [
     hero: true,
     heading: "MYSTURA",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
-    image: "/mobile.png",
+    image: "/mystura-mobile-1.png",
     bgImage: "/portfolio-1-bg.png"
   },
   {
@@ -14,21 +14,12 @@ const mysturaData = [
     hero: false,
     heading: "Onboarding Screen",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
-    image: "/mystura-mobile-1.png",
-    bgImage: "/bg-2.png"
-  },
-  {
-    type: "mobile",
-    variant: "left",
-    hero: false,
-    heading: "Onboarding Screen",
-    description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
     image: "/mystura-mobile-2.png",
     bgImage: "/bg-2.png"
   },
   {
     type: "mobile",
-    variant: "right",
+    variant: "left",
     hero: false,
     heading: "Onboarding Screen",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
@@ -37,11 +28,20 @@ const mysturaData = [
   },
   {
     type: "mobile",
+    variant: "right",
+    hero: false,
+    heading: "Onboarding Screen",
+    description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
+    image: "/mystura-mobile-4.png",
+    bgImage: "/bg-2.png"
+  },
+  {
+    type: "mobile",
     variant: "left",
     hero: false,
     heading: "Login & Sign up",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
-    image: "/mystura-mobile-4.png",
+    image: "/mystura-mobile-5.png",
     bgImage: "/bg-2.png"
   },
   {
@@ -50,7 +50,7 @@ const mysturaData = [
     hero: false,
     heading: "Home Screen",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
-    image: "/mystura-mobile-5.png",
+    image: "/mystura-mobile-6.png",
     bgImage: "/bg-2.png"
   },
   {
@@ -59,7 +59,7 @@ const mysturaData = [
     hero: false,
     heading: "Services All View",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
-    image: "/mystura-mobile-6.png",
+    image: "/mystura-mobile-7.png",
     bgImage: "/bg-2.png"
   },
   {
@@ -68,7 +68,7 @@ const mysturaData = [
     hero: false,
     heading: "Reviews & Create Services",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
-    image: "/mystura-mobile-7.png",
+    image: "/mystura-mobile-8.png",
     bgImage: "/bg-2.png"
   },
   {
@@ -77,7 +77,7 @@ const mysturaData = [
     hero: false,
     heading: "Contact & Create Contact",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
-    image: "/mystura-mobile-8.png",
+    image: "/mystura-mobile-9.png",
     bgImage: "/bg-2.png"
   },
   {
@@ -86,7 +86,7 @@ const mysturaData = [
     hero: false,
     heading: "Filter & Booking",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
-    image: "/mystura-mobile-9.png",
+    image: "/mystura-mobile-10.png",
     bgImage: "/bg-2.png"
   },
   {
@@ -95,7 +95,7 @@ const mysturaData = [
     hero: false,
     heading: "Cancel Booking",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
-    image: "/mystura-mobile-10.png",
+    image: "/mystura-mobile-11.png",
     bgImage: "/bg-2.png"
   },
   {
@@ -104,7 +104,7 @@ const mysturaData = [
     hero: false,
     heading: "Message & Chat",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
-    image: "/mystura-mobile-11.png",
+    image: "/mystura-mobile-12.png",
     bgImage: "/bg-2.png"
   },
   {
@@ -113,7 +113,7 @@ const mysturaData = [
     hero: false,
     heading: "Setting & Edit Profile",
     description: "This is a brief description of your app that highlights its features and purpose in a clear, concise way for users.",
-    image: "/mystura-mobile-12.png",
+    image: "/mystura-mobile-13.png",
     bgImage: "/bg-2.png"
   },
   {
