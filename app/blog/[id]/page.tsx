@@ -1,7 +1,9 @@
 import BlogPage from "@/app/components/BlogFullView";
 import { blogs } from "@/data/blogData";
 
-export default function BlogDetails({ params }: { params: { id: string } }) {
+export default function BlogDetails(params: {
+    id: string;
+  }) {
   const blog = blogs.find((b) => b.id === params.id);
 
   if (!blog) {
