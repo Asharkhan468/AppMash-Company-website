@@ -21,16 +21,16 @@ function PortfolioPreview1({ bgImage, heading, description, image, hero }: any) 
         </div>
 
         {/* Right Side: Image */}
-        <div className={`w-full md:w-1/2 flex justify-center ${hero ? 'mt-14':''}`}>
-          <Image
-            src={image}
-            alt="App Preview"
-            width={7500}
-            height={7500}
-            className="rounded-lg object-cover w-full"
-            priority
-          />
-        </div>
+      <div className="w-full md:w-1/2 flex justify-center">
+                <Image
+                  src={image}
+                  alt="App Preview"
+                  width={1200}
+                  height={900}
+                  className="rounded-lg w-auto h-auto max-w-full"
+                  priority
+                />
+              </div>
       </div>
     </section>
   );
