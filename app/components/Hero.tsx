@@ -11,6 +11,7 @@ import youtube from "@/public/Youtube Icon.png";
 import hero1 from "@/public/hero1.png";
 import hero2 from "@/public/hero2.png";
 import hero3 from "@/public/hero3.png";
+import GetStartedForm from "./GetQuoteForm";
 
 interface Slide {
   title: string;
@@ -52,6 +53,7 @@ const slides: Slide[] = [
 export default function HeroCarousel() {
   const [index, setIndex] = useState<number>(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
+  const [showForm , setShowForm] = useState(false);
 
   // Auto slide every 5 seconds
   useEffect(() => {
@@ -68,6 +70,10 @@ export default function HeroCarousel() {
     setIndex(slideIndex);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
+  const handleButtonClick = () => {
+    setShowForm(true);
   };
 
   const { title, subtitle, description, image } = slides[index];
@@ -97,7 +103,7 @@ export default function HeroCarousel() {
 
             {/* Buttons */}
             <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 sm:gap-3 pt-1 sm:pt-2">
-              <button className="flex items-center gap-1 sm:gap-2 bg-primary2 text-white font-semibold text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-md transition hover:bg-primary2/90">
+              <button onClick={handleButtonClick} className="flex items-center gap-1 sm:gap-2 bg-primary2 text-white font-semibold text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-md transition hover:bg-primary2/90">
                 Get Started
                 <FontAwesomeIcon
                   icon={faArrowRight}
@@ -112,6 +118,8 @@ export default function HeroCarousel() {
                 Watch Video
               </button>
             </div>
+
+            
           </div>
 
           {/* Right Content */}
@@ -179,6 +187,31 @@ export default function HeroCarousel() {
           ))}
         </div>
       </div>
+
+      {showForm && (
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-[9999] p-4">
+            {/* Main Form Container */}
+            <div
+              className="relative w-full max-w-2xl bg-secondary1 rounded-xl shadow-2xl overflow-y-auto"
+              style={{ maxHeight: "95vh" }}
+            >
+              {/* Extra Large Red Close Button */}
+              <button
+                onClick={() => setShowForm(false)}
+                className="absolute top-4 right-4 z-10 cursor-pointer text-primary1 hover:text-primary2 text-6xl font-bold transition-colors duration-200 focus:outline-none"
+                style={{ width: "60px", height: "60px", lineHeight: "60px" }}
+                aria-label="Close form"
+              >
+                &times;
+              </button>
+
+              {/* Form Content */}
+              <div className="p-6 md:p-8 w-full">
+                <GetStartedForm />
+              </div>
+            </div>
+          </div>
+        )}
     </section>
   );
 }

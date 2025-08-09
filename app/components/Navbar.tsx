@@ -40,14 +40,14 @@ const Navbar = () => {
     <div className="w-full bg-gradient1 shadow-lg p-0 sticky top-0 z-50 ">
       {/* Mobile Header (visible only on mobile) */}
       <div className="md:hidden flex justify-between items-center px-8 py-3 bg-primary2 pl-6 ">
-        <div className="relative h-20 w-20 to-black">
+        <Link href="/" className="relative h-20 w-20 to-black">
           <Image
             src="/appmashLogo.png"
             alt="Logo"
             fill
             className="object-contain p-1"
           />
-        </div>
+        </Link>
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="text-white focus:outline-none"
@@ -63,14 +63,14 @@ const Navbar = () => {
       <div className="hidden md:flex w-full h-20 mr-14">
         {/* Logo Section */}
         <div className="w-48 flex justify-center items-center px-5">
-          <div className="relative h-16 w-[140px]">
+          <Link href="/" className="relative h-16 w-[140px] cursor-pointer">
             <Image
               src="/appmashLogo.png"
               alt="Logo"
               fill
               className="object-contain p-1"
             />
-          </div>
+          </Link>
         </div>
 
         {/* Navbar Section */}
