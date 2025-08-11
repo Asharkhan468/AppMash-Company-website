@@ -6,23 +6,22 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   safelist: [
-    'w-[160px]',
-    'w-[200px]',
-    'w-[260px]',
-    'w-[340px]',
-    'w-[440px]',
-    'h-[160px]',
-    'h-[200px]',
-    'h-[260px]',
-    'h-[340px]',
-    'h-[440px]',
-    'max-w-[90%]',
-    // agar tum xs: prefix use karte ho to:
-    'xs:text-3xl',
-    'xs:w-[200px]'
+    'bg-primary2',
+    'bg-primary2/90',
+    'from-primary2/40',
+    'to-primary2/20',
+    'text-primary1',
+    'bg-secondary1',
+    'bg-black/60',
+    'bg-white/50',
+    'bg-white/70',
+    'w-3',
+    'sm:w-4',
+    'w-1.5',
+    'sm:w-2',
+    'h-1.5',
+    'sm:h-2',
+    'lg:right-[-60px]',
+    'right-[-40px]'
   ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+};
