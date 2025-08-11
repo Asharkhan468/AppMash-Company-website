@@ -219,37 +219,31 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 "use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faPlayCircle } from "@fortawesome/free-solid-svg-icons";
-import pintrest from "@/public/Pintrest Icon.png";
-import facebook from "@/public/facebook Icon.png";
-import twitter from "@/public/Twitter Icon.png";
-import youtube from "@/public/Youtube Icon.png";
-import hero1 from "@/public/hero1.png";
-import hero2 from "@/public/hero2.png";
-import hero3 from "@/public/hero3.png";
 import GetStartedForm from "./GetQuoteForm";
 
-const slides = [
+// Import images with absolute paths
+const pintrest = "/Pintrest Icon.png";
+const facebook = "/facebook Icon.png";
+const twitter = "/Twitter Icon.png";
+const youtube = "/Youtube Icon.png";
+const hero1 = "/hero1.png";
+const hero2 = "/hero2.png";
+const hero3 = "/hero3.png";
+
+interface Slide {
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+}
+
+const slides: Slide[] = [
   {
     title: "CUSTOM SOFTWARE",
     subtitle: "SOLUTION",
@@ -258,7 +252,7 @@ const slides = [
   },
   {
     title: "BRAND IDENTITY",
-    subtitle: "INNOVATION",
+    subtitle: "INOVATION",
     description: "Cross-platform mobile apps that perform smoothly and look great.",
     image: hero3,
   },
@@ -269,7 +263,7 @@ const slides = [
     image: hero2,
   },
   {
-    title: "IMMERSIVE TECH &",
+    title: "IMERSIVE TECH &",
     subtitle: "INTERACTIVE DESIGN",
     description: "Cross-platform mobile apps that perform smoothly and look great.",
     image: hero3,
@@ -277,83 +271,144 @@ const slides = [
 ];
 
 export default function HeroCarousel() {
-  const [index, setIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [index, setIndex] = useState<number>(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
   const [showForm, setShowForm] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
+  // Auto slide with cleanup
   useEffect(() => {
-    if (isAutoPlaying) {
-      const interval = setInterval(() => {
-        setIndex((prev) => (prev + 1) % slides.length);
-      }, 5000);
-      return () => clearInterval(interval);
+    if (typeof window === 'undefined') return;
+
+    let interval: NodeJS.Timeout;
+    
+    const startInterval = () => {
+      if (isAutoPlaying) {
+        interval = setInterval(() => {
+          setIndex((prev) => (prev + 1) % slides.length);
+        }, 5000);
+      }
+    };
+
+    try {
+      startInterval();
+    } catch (err) {
+      setError("Failed to initialize carousel");
+      console.error("Carousel error:", err);
     }
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, [isAutoPlaying]);
 
-  const goToSlide = (i: number) => {
-    setIndex(i);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
+  const goToSlide = (slideIndex: number) => {
+    try {
+      setIndex(slideIndex);
+      setIsAutoPlaying(false);
+      const timer = setTimeout(() => setIsAutoPlaying(true), 10000);
+      return () => clearTimeout(timer);
+    } catch (err) {
+      setError("Slide transition failed");
+      console.error("Transition error:", err);
+    }
   };
+
+  const handleButtonClick = () => {
+    setShowForm(true);
+  };
+
+  if (error) {
+    return (
+      <div className="relative w-full min-h-screen flex items-center justify-center bg-black text-white p-8 text-center">
+        <div>
+          <h2 className="text-2xl font-bold mb-4">Carousel Loading Error</h2>
+          <p>{error}</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="mt-4 bg-primary2 text-white px-4 py-2 rounded"
+          >
+            Reload Component
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   const { title, subtitle, description, image } = slides[index];
 
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden pt-6 pb-8">
-      {/* Background */}
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden pt-4 sm:pt-6 pb-6 sm:pb-8">
+      {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary2/40 via-black to-primary2/20 z-0" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Left Text */}
-          <div className="order-2 md:order-1 text-center md:text-left space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gray-300">
+      {/* Main Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pb-6 sm:pb-8">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
+          {/* Left Content */}
+          <div className="text-center md:text-left space-y-2 sm:space-y-3 md:space-y-4 order-2 md:order-1 transition-all duration-700 ease-in-out">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-300">
               Welcome Creative Agency
             </p>
-            <h1 className="text-2xl sm:text-3xl lg:text-[50px] font-extrabold leading-tight tracking-tight text-white">
-              {title} <br /> {subtitle}
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[70px] xl:text-[90px] font-extrabold leading-snug sm:leading-tight md:leading-tight tracking-tight text-white max-w-[90%] md:max-w-none mx-auto md:mx-0">
+              {title}
+              <br />
+              {subtitle}
             </h1>
-            <p className="text-base text-gray-300 max-w-md mx-auto md:mx-0">
+            <p className="text-xs sm:text-sm md:text-base leading-relaxed text-gray-300 max-w-md mx-auto md:mx-0">
               {description}
             </p>
-            <div className="flex flex-wrap justify-center md:justify-start gap-3">
-              <button
-                onClick={() => setShowForm(true)}
-                className="flex items-center gap-2 bg-primary2 text-white font-semibold text-sm px-4 py-2 rounded-md hover:bg-primary2/90"
+
+            {/* Buttons */}
+            <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 sm:gap-3 pt-1 sm:pt-2">
+              <button 
+                onClick={handleButtonClick} 
+                className="flex items-center gap-1 sm:gap-2 bg-primary2 text-white font-semibold text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-md transition hover:bg-primary2/90"
               >
                 Get Started
-                <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  className="w-3 h-3 sm:w-4 sm:h-4 ml-1"
+                />
               </button>
-              <button className="group flex items-center gap-2 border border-white hover:bg-white hover:text-black text-white font-semibold text-sm px-4 py-2 rounded-md transition">
+              <button className="group flex items-center gap-1 sm:gap-2 border border-white hover:bg-white hover:text-black text-white font-semibold text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-md transition">
                 <FontAwesomeIcon
                   icon={faPlayCircle}
-                  className="w-4 h-4 text-white group-hover:text-black"
+                  className="w-3 h-3 sm:w-4 sm:h-4 text-white group-hover:text-black"
                 />
                 Watch Video
               </button>
             </div>
           </div>
 
-          {/* Right Image */}
-          <div className="order-1 md:order-2 relative flex justify-center">
-            <div className="relative aspect-[4/5] w-full max-w-[440px]">
+          {/* Right Content */}
+          <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
+            <div className="relative aspect-[4/5] w-full max-w-[440px] flex items-center justify-center">
               <Image
                 src={image}
                 alt={`${title} ${subtitle}`}
-                fill
-                className="object-contain"
+                width={400}
+                height={520}
+                className="object-contain transition-opacity duration-500"
                 priority
+                onError={() => setError("Failed to load hero image")}
               />
             </div>
-            <div className="hidden md:flex absolute right-[-50px] top-1/2 -translate-y-1/2 flex-col gap-4">
+
+            {/* Social Icons */}
+            <div className="hidden md:flex absolute right-[-40px] lg:right-[-60px] top-1/2 transform -translate-y-1/2 flex-col gap-3 lg:gap-4 z-20">
               {[pintrest, facebook, twitter, youtube].map((icon, i) => (
                 <Image
                   key={i}
                   src={icon}
-                  alt="social icon"
+                  alt={["Pinterest", "Facebook", "Twitter", "YouTube"][i]}
                   width={24}
                   height={24}
-                  className="w-6 h-6 hover:scale-110 transition-transform"
+                  className="w-5 h-5 lg:w-6 lg:h-6 hover:scale-110 transition-transform"
+                  onError={(e) => {
+                    console.error(`Failed to load ${icon}`);
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
               ))}
             </div>
@@ -362,21 +417,24 @@ export default function HeroCarousel() {
       </div>
 
       {/* Dot Indicators */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 mt-4">
-        <div className="flex justify-center gap-2">
-          {slides.map((_, i) => (
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-2 sm:py-4">
+        <div className="flex justify-center gap-1.5 sm:gap-2">
+          {slides.map((_, slideIndex) => (
             <button
-              key={i}
-              onClick={() => goToSlide(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === i ? "bg-primary2 w-4" : "bg-white/50 hover:bg-white/70"
+              key={slideIndex}
+              onClick={() => goToSlide(slideIndex)}
+              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
+                index === slideIndex
+                  ? "bg-primary2 w-3 sm:w-4"
+                  : "bg-white/50 hover:bg-white/70"
               }`}
+              aria-label={`Go to slide ${slideIndex + 1}`}
             />
           ))}
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Form Modal */}
       {showForm && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-[9999] p-4">
           <div
@@ -385,11 +443,13 @@ export default function HeroCarousel() {
           >
             <button
               onClick={() => setShowForm(false)}
-              className="absolute top-4 right-4 text-primary1 hover:text-primary2 text-6xl font-bold"
+              className="absolute top-4 right-4 z-10 cursor-pointer text-primary1 hover:text-primary2 text-6xl font-bold transition-colors duration-200 focus:outline-none"
+              style={{ width: "60px", height: "60px", lineHeight: "60px" }}
+              aria-label="Close form"
             >
               &times;
             </button>
-            <div className="p-6">
+            <div className="p-6 md:p-8 w-full">
               <GetStartedForm />
             </div>
           </div>
@@ -398,4 +458,9 @@ export default function HeroCarousel() {
     </section>
   );
 }
+
+
+
+
+
 
