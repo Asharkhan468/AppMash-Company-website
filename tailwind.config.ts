@@ -20,7 +20,13 @@ module.exports = {
     'bg-neutral3',
     'bg-neutral4',
     'bg-secondary1',
-    'bg-secondary2'
+    'bg-secondary2',
+    { pattern: /w-\[.*\]/ },
+  { pattern: /h-\[.*\]/ },
+  { pattern: /right-\[.*\]/ },
+  { pattern: /lg:right-\[.*\]/ },
+  { pattern: /max-w-\[.*\]/ },
+  { pattern: /md:order-.*/ },
   ],
   theme: {
     extend: {},

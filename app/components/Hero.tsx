@@ -124,7 +124,8 @@ export default function HeroCarousel() {
 
           {/* Right Content */}
           <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
-            <div className="w-[160px] h-[160px] xs:w-[200px] xs:h-[200px] sm:w-[260px] sm:h-[260px] md:w-[340px] md:h-[340px] lg:w-[440px] lg:h-[440px] flex items-center justify-center">
+            {/* <div className="w-[160px] h-[160px] xs:w-[200px] xs:h-[200px] sm:w-[260px] sm:h-[260px] md:w-[340px] md:h-[340px] lg:w-[440px] lg:h-[440px] flex items-center justify-center"> */}
+            <div className="relative aspect-[4/5] w-full max-w-[440px] flex items-center justify-center">
               <Image
                 src={image}
                 alt={`${title} ${subtitle}`}
