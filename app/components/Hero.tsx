@@ -320,7 +320,7 @@ export default function HeroCarousel() {
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-300">
               Welcome Creative Agency
             </p>
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[70px] xl:text-[90px] font-extrabold leading-snug sm:leading-tight md:leading-tight tracking-tight text-white max-w-[90%] md:max-w-none mx-auto md:mx-0">
+            <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-[50px] xl:text-[70px] font-extrabold leading-snug sm:leading-tight md:leading-tight tracking-tight text-white max-w-[90%] md:max-w-none mx-auto md:mx-0">
               {title}
               <br />
               {subtitle}

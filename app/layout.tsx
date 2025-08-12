@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Monda } from "next/font/google";
+// import { Monda } from "next/font/google";
 import "../app/globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-const monda = Monda({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
+// const monda = Monda({
+//   weight: "400",
+//   subsets: ["latin"],
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   title: "AppMash",
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={monda.className}>
+    <html lang="en" >
       <body className="antialiased scroll-smooth">
         <Navbar />
         {children}
