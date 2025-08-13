@@ -1,16 +1,21 @@
-// tailwind.config.ts
-type Config = {
-  content: string[];
-  theme?: Record<string, any>;
-  safelist?: string[];
-  plugins?: any[];
-};
+import type { Config as TailwindConfig } from "tailwindcss";
 
-export default {
+interface MyConfig extends TailwindConfig {
+  safelist?: string[];
+}
+
+const config: MyConfig = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}", // agar pages dir use ho to
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  safelist: [
+    "min-h-[600px]",
+    "aspect-[4/5]",
+    "max-w-[440px]",
+    "bg-primary2",
+    "bg-white/50",
   ],
   theme: {
     extend: {
@@ -19,12 +24,7 @@ export default {
       },
     },
   },
-  safelist: [
-    "min-h-[600px]",
-    "aspect-[4/5]",
-    "max-w-[440px]",
-    "bg-primary2",
-    "bg-white/50",
-  ],
   plugins: [],
-} satisfies Config;
+};
+
+export default config;

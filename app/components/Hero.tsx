@@ -200,13 +200,13 @@
 
 
 
-
 "use client";
 
 import { useState, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faPlayCircle } from "@fortawesome/free-solid-svg-icons";
+
 import pintrest from "@/public/Pintrest Icon.png";
 import facebook from "@/public/facebook Icon.png";
 import twitter from "@/public/Twitter Icon.png";
@@ -232,7 +232,7 @@ const slides: Slide[] = [
   },
   {
     title: "BRAND IDENTITY",
-    subtitle: "INOVATION",
+    subtitle: "INNOVATION",
     description: "Cross-platform mobile apps that perform smoothly and look great.",
     image: hero3,
   },
@@ -243,7 +243,7 @@ const slides: Slide[] = [
     image: hero2,
   },
   {
-    title: "IMERSIVE TECH &",
+    title: "IMMERSIVE TECH &",
     subtitle: "INTERACTIVE DESIGN",
     description: "Cross-platform mobile apps that perform smoothly and look great.",
     image: hero3,
@@ -251,30 +251,18 @@ const slides: Slide[] = [
 ];
 
 export default function HeroCarousel() {
-  const [index, setIndex] = useState<number>(0);
-  const [isClient, setIsClient] = useState(false);
+  const [index, setIndex] = useState(0);
   const [showForm, setShowForm] = useState(false);
 
-  // Client-side detection to prevent SSR mismatch
+  // Autoplay
   useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  // Autoplay slides after client mount
-  useEffect(() => {
-    if (!isClient) return;
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [isClient]);
+  }, []);
 
-  const goToSlide = (slideIndex: number) => setIndex(slideIndex);
-  const handleButtonClick = () => setShowForm(true);
   const { title, subtitle, description, image } = slides[index];
-
-  // Prevent SSR mismatch
-  if (!isClient) return null;
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden pt-4 sm:pt-6 pb-6 sm:pb-8">
@@ -284,6 +272,7 @@ export default function HeroCarousel() {
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pb-6 sm:pb-8">
         <div className="flex flex-col md:grid md:grid-cols-2 min-h-[600px] gap-4 sm:gap-6 md:gap-8 items-center">
+          
           {/* Left Content */}
           <div className="text-center md:text-left space-y-2 sm:space-y-3 md:space-y-4 order-2 md:order-1 transition-all duration-700 ease-in-out">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-300">
@@ -301,7 +290,7 @@ export default function HeroCarousel() {
             {/* Buttons */}
             <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 sm:gap-3 pt-1 sm:pt-2">
               <button
-                onClick={handleButtonClick}
+                onClick={() => setShowForm(true)}
                 className="flex items-center gap-1 sm:gap-2 bg-primary2 text-white font-semibold text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-md transition hover:bg-primary2/90"
               >
                 Get Started
@@ -322,12 +311,11 @@ export default function HeroCarousel() {
 
           {/* Right Content */}
           <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
-            <div className="relative aspect-[4/5] w-full max-w-[440px] flex items-center justify-center">
+            <div className="relative aspect-[4/5] w-full max-w-[440px] min-h-[550px]">
               <Image
                 src={image}
                 alt={`${title} ${subtitle}`}
-                width={440}
-                height={550}
+                fill
                 sizes="(max-width: 768px) 100vw, 440px"
                 className="object-contain transition-opacity duration-500"
                 priority
@@ -358,7 +346,7 @@ export default function HeroCarousel() {
           {slides.map((_, slideIndex) => (
             <button
               key={slideIndex}
-              onClick={() => goToSlide(slideIndex)}
+              onClick={() => setIndex(slideIndex)}
               className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
                 index === slideIndex
                   ? "bg-primary2 w-3 sm:w-4"
@@ -390,9 +378,6 @@ export default function HeroCarousel() {
           </div>
         </div>
       )}
-
-      {/* Tailwind safelist helper */}
-      <div className="hidden bg-primary2 bg-white/50 min-h-[600px] aspect-[4/5] max-w-[440px]"></div>
     </section>
   );
 }
