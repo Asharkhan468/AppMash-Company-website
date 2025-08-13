@@ -1,12 +1,24 @@
 import type { Metadata } from "next";
-import { Monda } from "next/font/google";
+// import { Monda } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
+
 import "../app/globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-const monda = Monda({
-  weight: "400",
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
+// const monda = Monda({
+//   weight: "400",
+//   subsets: ["latin", "latin-ext"],
+//   display: "swap",
+// });
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -20,8 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={monda.className}>
-      <body className="antialiased scroll-smooth">
+    <html lang="en" >
+      <body  className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}>
         <Navbar />
         {children}
         <Footer />
