@@ -33,19 +33,16 @@
 //     </html>
 //   );
 // }
-
-
-
 import type { Metadata } from "next";
 import { Monda } from "next/font/google";
-
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+// ✅ Google font with CSS variable
 const monda = Monda({
-  weight: "400",
   subsets: ["latin", "latin-ext"],
+  weight: ["400", "700"],
   variable: "--font-monda",
   display: "swap",
 });
@@ -55,17 +52,22 @@ export const metadata: Metadata = {
   description: "Creative Agency Website",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${monda.variable} scroll-smooth`}>
-      <body className="antialiased bg-black text-white">
-        <Navbar />
-        {children}
-        <Footer />
+      <body className="antialiased font-monda min-h-screen flex flex-col">
+        {/* Sticky Navbar */}
+        <header className="flex-none">
+          <Navbar />
+        </header>
+
+        {/* Main content */}
+        <main className="flex-1">{children}</main>
+
+        {/* Footer */}
+        <footer className="flex-none">
+          <Footer />
+        </footer>
       </body>
     </html>
   );
