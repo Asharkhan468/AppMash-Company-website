@@ -1,6 +1,4 @@
 // tailwind.config.ts
-
-// TailwindCSS v4 me default type export nahi hota, isliye hum apna type define kar rahe hain
 type Config = {
   content: string[];
   theme?: Record<string, any>;
