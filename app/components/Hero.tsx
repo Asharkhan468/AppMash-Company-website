@@ -24,15 +24,13 @@ const slides: Slide[] = [
   {
     title: "CUSTOM SOFTWARE",
     subtitle: "SOLUTION",
-    description:
-      "We develop tailored solutions that scale with your business growth.",
+    description: "We develop tailored solutions that scale with your business growth.",
     image: hero1,
   },
   {
     title: "BRAND IDENTITY",
     subtitle: "INOVATION",
-    description:
-      "Cross-platform mobile apps that perform smoothly and look great.",
+    description: "Cross-platform mobile apps that perform smoothly and look great.",
     image: hero3,
   },
   {
@@ -44,38 +42,32 @@ const slides: Slide[] = [
   {
     title: "IMERSIVE TECH &",
     subtitle: "INTERACTIVE DESIGN",
-    description:
-      "Cross-platform mobile apps that perform smoothly and look great.",
+    description: "Cross-platform mobile apps that perform smoothly and look great.",
     image: hero3,
   },
 ];
 
 export default function HeroCarousel() {
-  const [mounted, setMounted] = useState(false); // 👈 Added for hydration fix
-  const [index, setIndex] = useState<number>(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
+  const [index, setIndex] = useState<number>(0); // always render first slide server side
+  const [isClient, setIsClient] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
-  // Ensure component renders only after mount
+  // detect client side
   useEffect(() => {
-    setMounted(true);
+    setIsClient(true);
   }, []);
 
-  // Auto-play slides
+  // autoplay only after client mount
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isAutoPlaying) {
-      interval = setInterval(() => {
-        setIndex((prev) => (prev + 1) % slides.length);
-      }, 5000);
-    }
+    if (!isClient) return;
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % slides.length);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [isClient]);
 
   const goToSlide = (slideIndex: number) => {
     setIndex(slideIndex);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const handleButtonClick = () => {
@@ -83,9 +75,6 @@ export default function HeroCarousel() {
   };
 
   const { title, subtitle, description, image } = slides[index];
-
-  // Prevent render until mounted (avoids layout shift)
-  if (!mounted) return null;
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden pt-4 sm:pt-6 pb-6 sm:pb-8">
@@ -95,6 +84,7 @@ export default function HeroCarousel() {
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pb-6 sm:pb-8">
         <div className="flex flex-col md:grid md:grid-cols-2 min-h-[600px] gap-4 sm:gap-6 md:gap-8 items-center">
+          
           {/* Left Content */}
           <div className="text-center md:text-left space-y-2 sm:space-y-3 md:space-y-4 order-2 md:order-1 transition-all duration-700 ease-in-out">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-300">
@@ -139,6 +129,7 @@ export default function HeroCarousel() {
                 alt={`${title} ${subtitle}`}
                 width={440}
                 height={550}
+                sizes="(max-width: 768px) 100vw, 440px"
                 className="object-contain transition-opacity duration-500"
                 priority
               />
@@ -153,6 +144,7 @@ export default function HeroCarousel() {
                   alt="Social"
                   width={24}
                   height={24}
+                  sizes="24px"
                   className="w-5 h-5 lg:w-6 lg:h-6 hover:scale-110 transition-transform"
                 />
               ))}
