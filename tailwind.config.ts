@@ -1,32 +1,19 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from "tailwindcss";
+
+interface MyConfig extends Config {
+  safelist?: string[];
+}
+
+const config: MyConfig = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {
-      colors: {
-        primary1: "#d0363c",
-        primary2: "#b32724",
-        secondary1: "#ffffff",
-      },
-      fontFamily: {
-        monda: ["var(--font-monda)", "sans-serif"],
-      },
-    },
-  },
   safelist: [
-    "bg-primary2",
-    "bg-secondary1",
-    "text-primary1",
-    "text-primary2",
-    "bg-white/50",
     "min-h-[600px]",
     "aspect-[4/5]",
     "max-w-[440px]",
   ],
-  plugins: [],
 };
+
+export default config;
