@@ -1,21 +1,10 @@
-import type { Config as TailwindConfig } from "tailwindcss";
+// tailwind.config.ts
+import type { Config } from "tailwindcss";
 
-interface MyConfig extends TailwindConfig {
-  safelist?: string[];
-}
-
-const config: MyConfig = {
+const config: Omit<Config, 'safelist'> & { safelist: string[] } = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  safelist: [
-    "min-h-[600px]",
-    "aspect-[4/5]",
-    "max-w-[440px]",
-    "bg-primary2",
-    "bg-white/50",
   ],
   theme: {
     extend: {
@@ -24,6 +13,13 @@ const config: MyConfig = {
       },
     },
   },
+  safelist: [
+    "min-h-[600px]",
+    "aspect-[4/5]",
+    "max-w-[440px]",
+    "bg-primary2",
+    "bg-white/50",
+  ],
   plugins: [],
 };
 
