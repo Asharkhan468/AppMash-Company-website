@@ -51,10 +51,17 @@ const slides: Slide[] = [
 ];
 
 export default function HeroCarousel() {
+  const [mounted, setMounted] = useState(false); // 👈 Added for hydration fix
   const [index, setIndex] = useState<number>(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
   const [showForm, setShowForm] = useState(false);
 
+  // Ensure component renders only after mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Auto-play slides
   useEffect(() => {
     let interval: NodeJS.Timeout;
     if (isAutoPlaying) {
@@ -77,6 +84,9 @@ export default function HeroCarousel() {
 
   const { title, subtitle, description, image } = slides[index];
 
+  // Prevent render until mounted (avoids layout shift)
+  if (!mounted) return null;
+
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden pt-4 sm:pt-6 pb-6 sm:pb-8">
       {/* Background Gradient */}
@@ -84,9 +94,7 @@ export default function HeroCarousel() {
 
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pb-6 sm:pb-8">
-        {/* <div className="flex flex-col md:grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center"> */}
         <div className="flex flex-col md:grid md:grid-cols-2 min-h-[600px] gap-4 sm:gap-6 md:gap-8 items-center">
-
           {/* Left Content */}
           <div className="text-center md:text-left space-y-2 sm:space-y-3 md:space-y-4 order-2 md:order-1 transition-all duration-700 ease-in-out">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-300">
@@ -193,13 +201,7 @@ export default function HeroCarousel() {
       )}
 
       {/* PurgeCSS safelist */}
-      <div className="hidden bg-primary2 bg-white/50"></div>
+      <div className="hidden bg-primary2 bg-white/50 min-h-[600px] aspect-[4/5] max-w-[440px]"></div>
     </section>
   );
 }
-
-
-
-
-
-

@@ -13,9 +13,9 @@ module.exports = {
         primary2: "#b32724",
         secondary1: "#ffffff",
       },
-       fontFamily: {
-      monda: ["var(--font-monda)", "sans-serif"],
-    },
+      fontFamily: {
+        monda: ["var(--font-monda)", "sans-serif"],
+      },
     },
   },
   safelist: [
@@ -23,7 +23,10 @@ module.exports = {
     "bg-secondary1",
     "text-primary1",
     "text-primary2",
-    "bg-white/50"
+    "bg-white/50",
+    "min-h-[600px]",
+    "aspect-[4/5]",
+    "max-w-[440px]",
   ],
   plugins: [],
 };
