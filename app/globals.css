@@ -9,6 +9,8 @@
 :root {
   --background: #0a0a0a; /* ✅ Force Dark Background */
   --foreground: #ededed; /* ✅ Force Dark Text */
+    font-family: var(--font-monda), sans-serif;
+
 }
 
 @theme inline {

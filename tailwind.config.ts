@@ -13,6 +13,9 @@ module.exports = {
         primary2: "#b32724",
         secondary1: "#ffffff",
       },
+       fontFamily: {
+      monda: ["var(--font-monda)", "sans-serif"],
+    },
     },
   },
   safelist: [
