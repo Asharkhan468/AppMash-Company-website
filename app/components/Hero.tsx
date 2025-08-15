@@ -514,20 +514,19 @@ export default function HeroCarousel() {
   className="relative w-full max-w-[440px]"
   style={{
     height: "550px",
-    minWidth: "440px" 
+    minWidth: "440px", // ✅ SSR me container width fix
   }}
 >
   <Image
-  src={image}
-  alt={`${title} ${subtitle}`}
-  width={440}
-  height={550}
-  className="object-contain w-full h-auto"
-  priority
-  unoptimized // 🚀 Skip optimization completely in prod
-  sizes="440px" // Force full-size load
-/>
-
+    src={image}
+    alt={`${title} ${subtitle}`}
+    width={440}
+    height={550}
+    className="object-contain w-full h-auto"
+    priority
+    unoptimized // 🚀 Skip Next.js CDN optimization
+    sizes="440px" // ✅ Force browser to pick full size
+  />
 </div>
 
 
