@@ -15,14 +15,16 @@ const config: Omit<Config, "safelist"> & { safelist: string[] } = {
     },
   },
   safelist: [
-    "bg-primary2",
-    "text-primary2",
-    "from-primary2/40",
-    "via-black",
-    "to-primary2/20",
-    "lg:right-[-60px]",
-    "right-[-40px]",
-  ],
+  'bg-primary2',
+  'text-primary2',
+  'from-primary2/40',
+  'to-primary2/20',
+  'bg-secondary1',
+  'text-primary1',
+  'right-[-40px]',
+  'lg:right-[-60px]',
+  'xs:text-2xl'
+],
 
   plugins: [],
 };
