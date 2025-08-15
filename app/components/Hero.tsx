@@ -512,16 +512,16 @@ export default function HeroCarousel() {
               }}
             > */}
 
-            <div 
-  className="relative w-full max-w-[440px] border-4 border-red-500"
-  style={{ height: "550px" }}
->
+            <div
+              className="relative w-full max-w-[440px] border-4 border-red-500"
+              style={{ height: "550px" }}
+            >
               <Image
                 src={image}
                 alt={`${title} ${subtitle}`}
-                fill
-                sizes="(max-width: 768px) 100vw, 440px"
-                style={{ objectFit: "contain" }} // object-contain fix
+                width={440}
+                height={550}
+                className="object-contain w-full h-auto"
                 priority
               />
             </div>
