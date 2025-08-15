@@ -311,7 +311,8 @@ export default function HeroCarousel() {
 
           {/* Right Content */}
           <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
-            <div className="relative aspect-[4/5] w-full max-w-[440px] min-h-[550px]">
+            <div className="relative w-full max-w-[440px] h-auto md:h-[550px]
+">
               <Image
                 src={image}
                 alt={`${title} ${subtitle}`}

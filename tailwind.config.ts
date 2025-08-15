@@ -1,10 +1,11 @@
 // tailwind.config.ts
 import type { Config } from "tailwindcss";
 
-const config: Omit<Config, 'safelist'> & { safelist: string[] } = {
+const config: Omit<Config, "safelist"> & { safelist: string[] } = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -14,12 +15,15 @@ const config: Omit<Config, 'safelist'> & { safelist: string[] } = {
     },
   },
   safelist: [
-    "min-h-[600px]",
-    "aspect-[4/5]",
-    "max-w-[440px]",
     "bg-primary2",
-    "bg-white/50",
+    "text-primary2",
+    "from-primary2/40",
+    "via-black",
+    "to-primary2/20",
+    "lg:right-[-60px]",
+    "right-[-40px]",
   ],
+
   plugins: [],
 };
 
