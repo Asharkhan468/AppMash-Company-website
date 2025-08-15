@@ -390,6 +390,10 @@
 //   );
 // }
 
+
+
+
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -447,6 +451,8 @@ export default function HeroCarousel() {
   const [index, setIndex] = useState(0);
   const [showForm, setShowForm] = useState(false);
 
+  const imgRef = useRef<HTMLImageElement>(null);
+
   // Autoplay slides
   useEffect(() => {
     const interval = setInterval(() => {
@@ -455,22 +461,26 @@ export default function HeroCarousel() {
     return () => clearInterval(interval);
   }, []);
 
-
-  const imgRef = useRef<HTMLImageElement>(null);
-
-useEffect(() => {
-  if (!imgRef.current) return;
-
-  const handleLoad = () => {
-    console.log("Client:", imgRef.current?.clientWidth, imgRef.current?.clientHeight);
-    console.log("Natural:", imgRef.current?.naturalWidth, imgRef.current?.naturalHeight);
-  };
-
-  imgRef.current.addEventListener("load", handleLoad);
-  return () => {
-    imgRef.current?.removeEventListener("load", handleLoad);
-  };
-}, []);
+  // Debugging: Log image dimensions after load
+  useEffect(() => {
+    if (!imgRef.current) return;
+    const handleLoad = () => {
+      console.log(
+        "Client:",
+        imgRef.current?.clientWidth,
+        imgRef.current?.clientHeight
+      );
+      console.log(
+        "Natural:",
+        imgRef.current?.naturalWidth,
+        imgRef.current?.naturalHeight
+      );
+    };
+    imgRef.current.addEventListener("load", handleLoad);
+    return () => {
+      imgRef.current?.removeEventListener("load", handleLoad);
+    };
+  }, []);
 
   const { title, subtitle, description, image } = slides[index];
 
@@ -520,30 +530,20 @@ useEffect(() => {
 
           {/* Right Content */}
           <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
-            <div
-              className="relative w-full max-w-[440px]"
-              style={{
-                height: "550px",
-                minWidth: "440px",
-              }}
-            >
+            <div className="relative w-[300px] h-[375px] sm:w-[440px] sm:h-[550px] min-w-[300px] sm:min-w-[440px]">
               <Image
-  ref={imgRef}
-  src={image}
-  alt={`${title} ${subtitle}`}
-  width={440}
-  height={550}
-  className="object-contain w-full h-auto"
-  priority
-  loading="eager"
-  unoptimized
-  sizes="440px"
-/>
-
+                ref={imgRef}
+                src={image}
+                alt={`${title} ${subtitle}`}
+                fill
+                className="object-contain"
+                priority
+                unoptimized
+              />
             </div>
 
             {/* Social Icons */}
-            <div className="hidden md:flex absolute right-[-40px] lg:right-[-60px] top-1/2 transform -translate-y-1/2 flex-col gap-3 lg:gap-4 z-20">
+            <div className="hidden md:flex absolute right-[-30px] lg:right-[-50px] top-1/2 transform -translate-y-1/2 flex-col gap-3 lg:gap-4 z-20">
               {[pintrest, facebook, twitter, youtube].map((icon, i) => (
                 <Image
                   key={i}
