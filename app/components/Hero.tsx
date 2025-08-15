@@ -392,7 +392,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faPlayCircle } from "@fortawesome/free-solid-svg-icons";
@@ -455,6 +455,23 @@ export default function HeroCarousel() {
     return () => clearInterval(interval);
   }, []);
 
+
+  const imgRef = useRef<HTMLImageElement>(null);
+
+useEffect(() => {
+  if (!imgRef.current) return;
+
+  const handleLoad = () => {
+    console.log("Client:", imgRef.current?.clientWidth, imgRef.current?.clientHeight);
+    console.log("Natural:", imgRef.current?.naturalWidth, imgRef.current?.naturalHeight);
+  };
+
+  imgRef.current.addEventListener("load", handleLoad);
+  return () => {
+    imgRef.current?.removeEventListener("load", handleLoad);
+  };
+}, []);
+
   const { title, subtitle, description, image } = slides[index];
 
   return (
@@ -511,16 +528,18 @@ export default function HeroCarousel() {
               }}
             >
               <Image
-                src={image}
-                alt={`${title} ${subtitle}`}
-                width={440}
-                height={550}
-                className="object-contain w-full h-auto"
-                priority
-                loading="eager"
-                unoptimized
-                sizes="440px"
-              />
+  ref={imgRef}
+  src={image}
+  alt={`${title} ${subtitle}`}
+  width={440}
+  height={550}
+  className="object-contain w-full h-auto"
+  priority
+  loading="eager"
+  unoptimized
+  sizes="440px"
+/>
+
             </div>
 
             {/* Social Icons */}
