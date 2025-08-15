@@ -532,14 +532,14 @@ export default function HeroCarousel() {
           <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
             <div className="relative w-[300px] h-[375px] sm:w-[440px] sm:h-[550px] min-w-[300px] sm:min-w-[440px]">
               <Image
-                ref={imgRef}
-                src={image}
-                alt={`${title} ${subtitle}`}
-                fill
-                className="object-contain"
-                priority
-                unoptimized
-              />
+  src={image}
+  alt={`${title} ${subtitle}`}
+  width={584}
+  height={494}
+  className="object-contain"
+  priority
+  unoptimized
+/>
             </div>
 
             {/* Social Icons */}
