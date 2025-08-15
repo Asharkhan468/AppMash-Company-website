@@ -511,20 +511,23 @@ export default function HeroCarousel() {
           {/* Right Content */}
           <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
             <div
-              className="relative w-full max-w-[440px]"
-              style={{ height: "550px" }}
-            >
-              <Image
-                src={image}
-                alt={`${title} ${subtitle}`}
-                width={440}
-                height={550}
-                className="object-contain w-full h-auto"
-                priority
-                unoptimized // 🚀 Debug: Forces original size
-                // sizes="(max-width: 768px) 100vw, 440px" // ✅ Uncomment for optimized production
-              />
-            </div>
+  className="relative w-full max-w-[440px]"
+  style={{
+    height: "550px",
+    minWidth: "440px" 
+  }}
+>
+  <Image
+    src={image}
+    alt={`${title} ${subtitle}`}
+    width={440}
+    height={550}
+    className="object-contain w-full h-auto"
+    priority
+    unoptimized
+  />
+</div>
+
 
             {/* Social Icons */}
             <div className="hidden md:flex absolute right-[-40px] lg:right-[-60px] top-1/2 transform -translate-y-1/2 flex-col gap-3 lg:gap-4 z-20">
