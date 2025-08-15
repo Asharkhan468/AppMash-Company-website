@@ -84,7 +84,7 @@
 //       {/* Main Content */}
 //       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pb-6 sm:pb-8">
 //         <div className="flex flex-col md:grid md:grid-cols-2 min-h-[600px] gap-4 sm:gap-6 md:gap-8 items-center">
-          
+
 //           {/* Left Content */}
 //           <div className="text-center md:text-left space-y-2 sm:space-y-3 md:space-y-4 order-2 md:order-1 transition-all duration-700 ease-in-out">
 //             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-300">
@@ -198,11 +198,6 @@
 //   );
 // }
 
-
-
-
-
-
 // "use client";
 
 // import { useState, useEffect } from "react";
@@ -275,7 +270,7 @@
 //       {/* Main Content */}
 //       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pb-6 sm:pb-8">
 //         <div className="flex flex-col md:grid md:grid-cols-2 min-h-[600px] gap-4 sm:gap-6 md:gap-8 items-center">
-          
+
 //           {/* Left Content */}
 //           <div className="text-center md:text-left space-y-2 sm:space-y-3 md:space-y-4 order-2 md:order-1 transition-all duration-700 ease-in-out">
 //             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-300">
@@ -334,7 +329,6 @@
 //     priority
 //   />
 // </div>
-
 
 //             {/* Social Icons */}
 //             <div className="hidden md:flex absolute right-[-40px] lg:right-[-60px] top-1/2 -translate-y-1/2 flex-col gap-3 lg:gap-4 z-20">
@@ -396,14 +390,6 @@
 //   );
 // }
 
-
-
-
-
-
-
-
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -431,13 +417,15 @@ const slides: Slide[] = [
   {
     title: "CUSTOM SOFTWARE",
     subtitle: "SOLUTION",
-    description: "We develop tailored solutions that scale with your business growth.",
+    description:
+      "We develop tailored solutions that scale with your business growth.",
     image: hero1,
   },
   {
     title: "BRAND IDENTITY",
     subtitle: "INNOVATION",
-    description: "Cross-platform mobile apps that perform smoothly and look great.",
+    description:
+      "Cross-platform mobile apps that perform smoothly and look great.",
     image: hero3,
   },
   {
@@ -449,7 +437,8 @@ const slides: Slide[] = [
   {
     title: "IMMERSIVE TECH &",
     subtitle: "INTERACTIVE DESIGN",
-    description: "Cross-platform mobile apps that perform smoothly and look great.",
+    description:
+      "Cross-platform mobile apps that perform smoothly and look great.",
     image: hero3,
   },
 ];
@@ -476,7 +465,6 @@ export default function HeroCarousel() {
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pb-6 sm:pb-8">
         <div className="flex flex-col md:grid md:grid-cols-2 min-h-[600px] gap-4 sm:gap-6 md:gap-8 items-center">
-          
           {/* Left Content */}
           <div className="text-center md:text-left space-y-2 sm:space-y-3 md:space-y-4 order-2 md:order-1">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-300">
@@ -515,13 +503,16 @@ export default function HeroCarousel() {
 
           {/* Right Content */}
           <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
-            <div className="relative w-full max-w-[440px] min-h-[300px] md:min-h-[550px]">
+            <div
+              className="relative w-full max-w-[440px]"
+              style={{ minHeight: "550px" }} // Inline style → purge-proof
+            >
               <Image
                 src={image}
                 alt={`${title} ${subtitle}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 440px"
-                className="object-contain transition-opacity duration-500"
+                className="object-contain"
                 priority
               />
             </div>
