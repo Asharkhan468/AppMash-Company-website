@@ -395,6 +395,7 @@
 
 
 
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -470,6 +471,7 @@ export default function HeroCarousel() {
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pb-6 sm:pb-8">
         <div className="flex flex-col md:grid md:grid-cols-2 min-h-[600px] gap-4 sm:gap-6 md:gap-8 items-center">
+          
           {/* Left Content */}
           <div className="text-center md:text-left space-y-2 sm:space-y-3 md:space-y-4 order-2 md:order-1">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-300">
@@ -509,7 +511,7 @@ export default function HeroCarousel() {
           {/* Right Content */}
           <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
             <div
-              className="relative w-full max-w-[440px] border-4 border-red-500"
+              className="relative w-full max-w-[440px]"
               style={{ height: "550px" }}
             >
               <Image
@@ -519,6 +521,8 @@ export default function HeroCarousel() {
                 height={550}
                 className="object-contain w-full h-auto"
                 priority
+                unoptimized // 🚀 Debug: Forces original size
+                // sizes="(max-width: 768px) 100vw, 440px" // ✅ Uncomment for optimized production
               />
             </div>
 
