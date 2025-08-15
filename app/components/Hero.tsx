@@ -390,12 +390,6 @@
 //   );
 // }
 
-
-
-
-
-
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -471,7 +465,6 @@ export default function HeroCarousel() {
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pb-6 sm:pb-8">
         <div className="flex flex-col md:grid md:grid-cols-2 min-h-[600px] gap-4 sm:gap-6 md:gap-8 items-center">
-          
           {/* Left Content */}
           <div className="text-center md:text-left space-y-2 sm:space-y-3 md:space-y-4 order-2 md:order-1">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-300">
@@ -511,24 +504,24 @@ export default function HeroCarousel() {
           {/* Right Content */}
           <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
             <div
-  className="relative w-full max-w-[440px]"
-  style={{
-    height: "550px",
-    minWidth: "440px", // ✅ SSR me container width fix
-  }}
->
-  <Image
-    src={image}
-    alt={`${title} ${subtitle}`}
-    width={440}
-    height={550}
-    className="object-contain w-full h-auto"
-    priority
-    unoptimized // 🚀 Skip Next.js CDN optimization
-    sizes="440px" // ✅ Force browser to pick full size
-  />
-</div>
-
+              className="relative w-full max-w-[440px]"
+              style={{
+                height: "550px",
+                minWidth: "440px",
+              }}
+            >
+              <Image
+                src={image}
+                alt={`${title} ${subtitle}`}
+                width={440}
+                height={550}
+                className="object-contain w-full h-auto"
+                priority
+                loading="eager"
+                unoptimized
+                sizes="440px"
+              />
+            </div>
 
             {/* Social Icons */}
             <div className="hidden md:flex absolute right-[-40px] lg:right-[-60px] top-1/2 transform -translate-y-1/2 flex-col gap-3 lg:gap-4 z-20">
