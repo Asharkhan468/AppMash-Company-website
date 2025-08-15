@@ -503,24 +503,28 @@ export default function HeroCarousel() {
 
           {/* Right Content */}
           <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
-            <div 
-  className="relative w-full max-w-[440px]"
-  style={{
-    position: "relative",
-    width: "100%",
-    height: "550px", // fixed height in px
-  }}
->
-  <Image
-    src={image}
-    alt={`${title} ${subtitle}`}
-    fill
-    sizes="(max-width: 768px) 100vw, 440px"
-    style={{ objectFit: "contain" }} // object-contain fix
-    priority
-  />
-</div>
+            {/* <div
+              className="relative w-full max-w-[440px]"
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "550px", 
+              }}
+            > */}
 
+            <div 
+  className="relative w-full max-w-[440px] border-4 border-red-500"
+  style={{ height: "550px" }}
+>
+              <Image
+                src={image}
+                alt={`${title} ${subtitle}`}
+                fill
+                sizes="(max-width: 768px) 100vw, 440px"
+                style={{ objectFit: "contain" }} // object-contain fix
+                priority
+              />
+            </div>
 
             {/* Social Icons */}
             <div className="hidden md:flex absolute right-[-40px] lg:right-[-60px] top-1/2 transform -translate-y-1/2 flex-col gap-3 lg:gap-4 z-20">
