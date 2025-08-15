@@ -518,14 +518,16 @@ export default function HeroCarousel() {
   }}
 >
   <Image
-    src={image}
-    alt={`${title} ${subtitle}`}
-    width={440}
-    height={550}
-    className="object-contain w-full h-auto"
-    priority
-    unoptimized
-  />
+  src={image}
+  alt={`${title} ${subtitle}`}
+  width={440}
+  height={550}
+  className="object-contain w-full h-auto"
+  priority
+  unoptimized // 🚀 Skip optimization completely in prod
+  sizes="440px" // Force full-size load
+/>
+
 </div>
 
 
