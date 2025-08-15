@@ -309,7 +309,7 @@ export default function HeroCarousel() {
 
           {/* Right Content */}
           <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
-            <div className="relative w-full max-w-[440px] min-h-[300px] md:min-h-[550px]">
+            {/* <div className="relative w-full max-w-[440px] min-h-[300px] md:min-h-[550px]">
               <Image
                 src={image}
                 alt={`${title} ${subtitle}`}
@@ -318,7 +318,18 @@ export default function HeroCarousel() {
                 className="object-contain transition-opacity duration-500"
                 priority
               />
-            </div>
+            </div> */}
+
+            <div className="relative w-full max-w-[440px] min-h-[300px] md:min-h-[550px]">
+  <Image
+    src={image}
+    alt={`${title} ${subtitle}`}
+    fill
+    className="object-contain"
+    priority
+  />
+</div>
+
 
             {/* Social Icons */}
             <div className="hidden md:flex absolute right-[-40px] lg:right-[-60px] top-1/2 -translate-y-1/2 flex-col gap-3 lg:gap-4 z-20">
