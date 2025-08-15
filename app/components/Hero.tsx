@@ -390,6 +390,11 @@
 //   );
 // }
 
+
+
+
+
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -503,15 +508,6 @@ export default function HeroCarousel() {
 
           {/* Right Content */}
           <div className="relative flex justify-center items-center order-1 md:order-2 w-full">
-            {/* <div
-              className="relative w-full max-w-[440px]"
-              style={{
-                position: "relative",
-                width: "100%",
-                height: "550px", 
-              }}
-            > */}
-
             <div
               className="relative w-full max-w-[440px] border-4 border-red-500"
               style={{ height: "550px" }}
@@ -535,7 +531,6 @@ export default function HeroCarousel() {
                   alt="Social"
                   width={24}
                   height={24}
-                  sizes="24px"
                   className="w-5 h-5 lg:w-6 lg:h-6 hover:scale-110 transition-transform"
                 />
               ))}
