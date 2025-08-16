@@ -59,7 +59,7 @@ export default function HeroCarousel() {
   const { title, subtitle, description, image } = slides[index];
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col justify-center items-center overflow-hidden bg-black mt-10 sm:mt-20">
+   <section className="relative w-full min-h-screen flex flex-col justify-center items-center overflow-hidden bg-black mt-10 sm:mt-20">
   {/* Background Gradient */}
   <div className="absolute inset-0 bg-gradient-to-r from-primary2/40 via-black to-primary2/20 z-0" />
 
@@ -68,18 +68,18 @@ export default function HeroCarousel() {
     <div className="flex flex-col-reverse lg:flex-row items-center gap-8 md:gap-12 xl:gap-16">
       
       {/* Text Content */}
-      <div className="flex-1 space-y-3 sm:space-y-5 lg:space-y-8 text-center lg:text-left">
-        <p className="text-xs sm:text-sm md:text-base font-semibold uppercase tracking-widest text-gray-300">
+      <div className="flex-1 space-y-4 sm:space-y-5 lg:space-y-8 text-center lg:text-left">
+        <p className="text-sm sm:text-base md:text-lg font-semibold uppercase tracking-widest text-gray-300">
           Welcome Creative Agency
         </p>
 
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white leading-snug md:leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-snug md:leading-tight">
           {title}
           <br />
           {subtitle}
         </h1>
 
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-xl mx-auto lg:mx-0">
           {description}
         </p>
 
@@ -92,14 +92,14 @@ export default function HeroCarousel() {
             Get Started
             <FontAwesomeIcon
               icon={faArrowRight}
-              className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1"
+              className="w-4 h-4 sm:w-5 sm:h-5 ml-1"
             />
           </button>
 
           <button className="group flex items-center gap-2 border border-white hover:bg-white hover:text-black text-white font-semibold text-sm sm:text-base px-4 sm:px-6 py-2.5 sm:py-3 rounded-md transition-colors">
             <FontAwesomeIcon
               icon={faPlayCircle}
-              className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white group-hover:text-black"
+              className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:text-black"
             />
             Watch Video
           </button>
@@ -107,36 +107,32 @@ export default function HeroCarousel() {
       </div>
 
       {/* Image Content */}
-   {/* Image Content */}
-{/* Image Content */}
-<div className="flex-1 flex justify-center relative">
-  <div className="relative w-4/5 sm:w-3/4 md:w-full max-w-[300px] sm:max-w-sm md:max-w-md xl:max-w-md">
-    <Image
-      src={image}
-      alt={`${title} ${subtitle}`}
-      width={500}   // thoda zyada diya taake clarity ho
-      height={600}
-      priority
-      className="object-contain w-full h-auto rounded-lg"
-    />
-  </div>
+      <div className="flex-1 flex justify-center relative">
+        <div className="relative w-4/5 sm:w-2/3 md:w-full max-w-[280px] sm:max-w-sm md:max-w-md xl:max-w-md">
+          <Image
+            src={image}
+            alt={`${title} ${subtitle}`}
+            width={450}
+            height={550}
+            priority
+            className="object-contain w-full h-auto rounded-lg"
+          />
+        </div>
 
-  {/* Social Icons (Only Desktop) */}
-  <div className="hidden lg:flex absolute right-0 lg:-right-12 top-1/2 -translate-y-1/2 flex-col gap-5 z-20">
-    {[pintrest, facebook, twitter, youtube].map((icon, i) => (
-      <Image
-        key={i}
-        src={icon}
-        alt="Social"
-        width={28}
-        height={28}
-        className="hover:scale-110 transition-transform cursor-pointer"
-      />
-    ))}
-  </div>
-</div>
-
-
+        {/* Social Icons (Only Desktop) */}
+        <div className="hidden lg:flex absolute right-0 lg:-right-12 top-1/2 -translate-y-1/2 flex-col gap-5 z-20">
+          {[pintrest, facebook, twitter, youtube].map((icon, i) => (
+            <Image
+              key={i}
+              src={icon}
+              alt="Social"
+              width={28}
+              height={28}
+              className="hover:scale-110 transition-transform cursor-pointer"
+            />
+          ))}
+        </div>
+      </div>
     </div>
   </div>
 
@@ -158,21 +154,22 @@ export default function HeroCarousel() {
   </div>
 
   {/* Popup Form */}
- {showForm && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-[9999] p-4">
-          {/* Main Form Container */}
-          <div
-            className="relative w-full max-w-2xl bg-secondary1 rounded-xl shadow-2xl overflow-y-auto"
-            style={{ maxHeight: "95vh" }}
-          >
-            {/* Form Content */}
-            <div className="p-6 md:p-8 w-full">
-              <GetStartedForm onClose={() => setShowForm(false)} />
-            </div>
-          </div>
+  {showForm && (
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-[9999] p-4">
+      {/* Main Form Container */}
+      <div
+        className="relative w-full max-w-2xl bg-secondary1 rounded-xl shadow-2xl overflow-y-auto"
+        style={{ maxHeight: "95vh" }}
+      >
+        {/* Form Content */}
+        <div className="p-6 md:p-8 w-full">
+          <GetStartedForm onClose={() => setShowForm(false)} />
         </div>
-      )}
+      </div>
+    </div>
+  )}
 </section>
+
 
   );
 }

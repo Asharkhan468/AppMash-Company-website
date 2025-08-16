@@ -70,7 +70,6 @@ export default function PortfolioSection() {
   </div>
 
  {/* Suggestion Buttons + See All */}
-{/* Suggestion Buttons + See All */}
 <div className="w-full px-4 sm:px-6 flex flex-col sm:flex-row sm:justify-between sm:items-center mt-6 max-w-7xl mx-auto gap-3">
   {/* Left Side Buttons */}
   <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
