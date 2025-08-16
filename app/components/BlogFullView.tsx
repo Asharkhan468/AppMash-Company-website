@@ -11,7 +11,7 @@ export default function BlogPage({
   realExample,
 }:any) {
   return (
- <div className="relative bg-neutral2 w-full overflow-hidden pt-6 sm:pt-8 pb-8 sm:pb-12">
+ <div className="relative mt-[80px] bg-neutral2 w-full overflow-hidden pt-6 sm:pt-8 pb-8 sm:pb-12">
   <div className="max-w-6xl mb-10 mx-auto px-3 sm:px-4 lg:px-6">
 
     {/* Top Image */}
