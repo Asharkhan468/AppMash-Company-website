@@ -172,11 +172,11 @@ const Navbar = () => {
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-[9999] p-4">
           {/* Main Form Container */}
           <div
-            className="relative w-full max-w-2xl bg-secondary1 rounded-xl shadow-2xl overflow-hidden"
-            style={{ maxHeight: "99vh" }}
+            className="relative w-full max-w-2xl bg-secondary1 rounded-xl shadow-2xl overflow-y-auto"
+            style={{ maxHeight: "95vh" }}
           >
             {/* Form Content */}
-            <div className="p-8 md:p-10 w-full">
+            <div className="p-6 md:p-8 w-full">
               <GetStartedForm onClose={() => setShowForm(false)} />
             </div>
           </div>
