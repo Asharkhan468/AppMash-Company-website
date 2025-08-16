@@ -108,13 +108,14 @@ export default function HeroCarousel() {
 
       {/* Image Content */}
    {/* Image Content */}
+{/* Image Content */}
 <div className="flex-1 flex justify-center relative">
-  <div className="relative w-3/4 sm:w-2/3 md:w-full max-w-[250px] sm:max-w-sm md:max-w-md xl:max-w-md">
+  <div className="relative w-4/5 sm:w-3/4 md:w-full max-w-[300px] sm:max-w-sm md:max-w-md xl:max-w-md">
     <Image
       src={image}
       alt={`${title} ${subtitle}`}
-      width={400} // ✅ width and height use karo
-      height={500}
+      width={500}   // thoda zyada diya taake clarity ho
+      height={600}
       priority
       className="object-contain w-full h-auto rounded-lg"
     />
@@ -134,6 +135,7 @@ export default function HeroCarousel() {
     ))}
   </div>
 </div>
+
 
     </div>
   </div>

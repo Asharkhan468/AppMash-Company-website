@@ -70,9 +70,10 @@ export default function PortfolioSection() {
   </div>
 
  {/* Suggestion Buttons + See All */}
-<div className="w-full px-4 sm:px-6 flex flex-wrap justify-between items-center mt-6 max-w-7xl mx-auto">
+{/* Suggestion Buttons + See All */}
+<div className="w-full px-4 sm:px-6 flex flex-col sm:flex-row sm:justify-between sm:items-center mt-6 max-w-7xl mx-auto gap-3">
   {/* Left Side Buttons */}
-  <div className="flex flex-wrap gap-3">
+  <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
     {["Mobile App", "Web App UI", "Landing Page", "E-commerce UI", "Dashboard UI"].map(
       (btn, idx) => (
         <button
@@ -86,10 +87,11 @@ export default function PortfolioSection() {
   </div>
 
   {/* Right Side - See All Button */}
-  <button className="text-primary2 px-4 sm:px-6 py-2 rounded-md text-xs sm:text-sm font-medium hover:text-primary2 border border-primary2 transition">
+  <button className="text-primary2 px-4 sm:px-6 py-2 rounded-md text-xs sm:text-sm font-medium hover:text-primary2 border border-primary2 transition mt-4 sm:mt-0 self-center sm:self-auto">
     See All
   </button>
 </div>
+
 
 
   {/* Cards Section */}

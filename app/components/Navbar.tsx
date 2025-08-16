@@ -41,34 +41,36 @@ const Navbar = () => {
   return (
     <div className="w-full bg-gradient1 shadow-lg p-0 fixed top-0 left-0 z-50">
       {/* Mobile Header (visible only on mobile) */}
-      <div className="md:hidden flex justify-between items-center px-4 py-3 bg-primary2">
-        <Link href="/" className="relative h-16 w-16">
-          <Image
-            src="/appmashLogo.png"
-            alt="Logo"
-            fill
-            className="object-contain p-1"
-          />
-        </Link>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center">
-            <FontAwesomeIcon
-              icon={faPhone}
-              className="text-secondary1 w-4 h-4 mr-2"
-            />
-            <span className="text-sm text-white">+123 456 7890</span>
-          </div>
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-white focus:outline-none"
-          >
-            <FontAwesomeIcon
-              icon={menuOpen ? faTimes : faBars}
-              className="h-6 w-6"
-            />
-          </button>
-        </div>
-      </div>
+    {/* Mobile Header (visible only on mobile) */}
+<div className="md:hidden flex justify-between items-center px-4 py-3 bg-primary2">
+  <Link href="/" className="relative h-16 w-[120px]">
+    <Image
+      src="/appmashLogo.png"
+      alt="Logo"
+      fill
+      className="object-contain p-1"
+    />
+  </Link>
+  <div className="flex items-center gap-4">
+    <div className="flex items-center">
+      <FontAwesomeIcon
+        icon={faPhone}
+        className="text-secondary1 w-4 h-4 mr-2"
+      />
+      <span className="text-sm text-white">+123 456 7890</span>
+    </div>
+    <button
+      onClick={() => setMenuOpen(!menuOpen)}
+      className="text-white focus:outline-none"
+    >
+      <FontAwesomeIcon
+        icon={menuOpen ? faTimes : faBars}
+        className="h-6 w-6"
+      />
+    </button>
+  </div>
+</div>
+
 
       {/* Desktop Header (hidden on mobile) */}
       <div className="hidden md:flex w-full h-20 mr-14">
