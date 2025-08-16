@@ -1,25 +1,15 @@
-@import "tailwindcss";
-@import "tailwindcss/utilities";
+/* Third-party Library - MUST come first */
 @import "react-phone-number-input/style.css";
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-} */
+/* Tailwind CSS v3 Base Imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Custom Variables */
 :root {
-  --background: #0a0a0a; /* ✅ Force Dark Background */
-  --foreground: #ededed; /* ✅ Force Dark Text */
-    font-family: var(--font-monda), sans-serif;
-
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-monda: var(--font-monda);
-}
-@theme {
+  --background: #0a0a0a;
+  --foreground: #ededed;
   --color-primary1: #d0363c;
   --color-primary2: #b32724;
   --color-neutral1: #292b30;
@@ -31,42 +21,41 @@
   --color-gradient1: #3e0204;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base Styles */
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: "Monda", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    font-family: "Monda", sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: "Monda", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  line-height: 1.5;
-}
-/* Add these in globals.css */
-.clip-bottom-right {
-  clip-path: circle(75% at 100% 100%);
+/* Custom Utility Classes */
+@layer utilities {
+  .clip-bottom-right {
+    clip-path: circle(75% at 100% 100%);
+  }
+
+  .clip-top-left {
+    clip-path: circle(75% at 0% 0%);
+  }
 }
 
-.clip-top-left {
-  clip-path: circle(75% at 0% 0%);
-}
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-  font-family: var(--font-monda), sans-serif;
-}
-
-/* Remove library's default input style */
+/* Phone Input Overrides */
 .PhoneInputInput {
   @apply w-full border-none focus:ring-0 focus:outline-none;
 }
 
-/* Style the flag selector */
 .PhoneInputCountry {
   @apply mr-2;
 }

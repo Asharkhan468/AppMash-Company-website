@@ -39,7 +39,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full bg-gradient1 shadow-lg p-0 sticky top-0 z-50">
+    <div className="w-full bg-gradient1 shadow-lg p-0 fixed top-0 left-0 z-50">
+
       {/* Mobile Header (visible only on mobile) */}
       <div className="md:hidden flex justify-between items-center px-4 py-3 bg-primary2">
         <Link href="/" className="relative h-16 w-16">

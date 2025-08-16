@@ -1,13 +1,25 @@
 module.exports = {
-  // Disable purging completely
-  purge: false,
-  
-  // Or if you're using Tailwind v3+ syntax:
-  content: false,
-  
-  // Rest of your Tailwind config
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
-    extend: {},
+    extend: {
+       colors: {
+        background: '#0a0a0a',
+        foreground: '#ededed',
+        primary1: '#d0363c',
+        primary2: '#b32724',
+        neutral1: '#292b30',
+        neutral2: '#000000',
+        neutral3: '#292929',
+        neutral4: '#1a1a1a',
+        secondary1: '#ffffff',
+        secondary2: '#f9f9f9',
+        gradient1: '#3e0204',
+      }
+    },
   },
   plugins: [],
 }

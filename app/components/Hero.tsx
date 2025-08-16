@@ -390,10 +390,6 @@
 //   );
 // }
 
-
-
-
-
 // "use client";
 
 // import { useState, useEffect, useRef } from "react";
@@ -461,7 +457,6 @@
 //     return () => clearInterval(interval);
 //   }, []);
 
-  
 //   const { title, subtitle, description, image } = slides[index];
 
 //   return (
@@ -581,15 +576,6 @@
 //   );
 // }
 
-
-
-
-
-
-
-
-
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -602,6 +588,9 @@ import youtube from "@/public/Youtube Icon.png";
 import hero1 from "@/public/hero1.png";
 import hero2 from "@/public/hero2.png";
 import hero3 from "@/public/hero3.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faPlayCircle } from "@fortawesome/free-solid-svg-icons";
+import GetStartedForm from "./GetQuoteForm";
 
 interface Slide {
   title: string;
@@ -648,36 +637,48 @@ export default function HeroCarousel() {
   const { title, subtitle, description, image } = slides[index];
 
   return (
-   <section className="relative w-full min-h-screen flex flex-col justify-center items-center overflow-hidden bg-black py-12">
+    <section className="relative w-full min-h-screen flex flex-col justify-center items-center overflow-hidden bg-black mt-20">
   {/* Background Gradient */}
   <div className="absolute inset-0 bg-gradient-to-r from-primary2/40 via-black to-primary2/20 z-0" />
 
   {/* Main Content Container */}
-  <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
-    <div className="flex flex-col lg:flex-row items-center gap-12 xl:gap-16">
+  <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 xl:gap-16">
+      
       {/* Text Content - Left Side */}
-      <div className="flex-1 space-y-6 lg:space-y-8 px-4 sm:px-6">
-        <p className="text-sm font-semibold uppercase tracking-widest text-gray-300">
+      <div className="flex-1 space-y-4 sm:space-y-6 lg:space-y-8 px-1 sm:px-3 lg:px-4">
+        <p className="text-xs sm:text-sm md:text-base font-semibold uppercase tracking-widest text-gray-300">
           Welcome Creative Agency
         </p>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+
+        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-white leading-snug md:leading-tight">
           {title}
           <br />
           {subtitle}
         </h1>
-        <p className="text-lg text-gray-300 max-w-xl">
+
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-xl">
           {description}
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-wrap gap-4 pt-2">
+        <div className="flex flex-wrap gap-3 sm:gap-4 pt-2">
           <button
             onClick={() => setShowForm(true)}
-            className="flex items-center gap-2 bg-primary2 text-white font-semibold px-6 py-3 rounded-md hover:bg-primary2/90 transition-colors"
+            className="flex items-center gap-2 bg-primary2 text-white font-semibold text-sm sm:text-base px-4 sm:px-6 py-2.5 sm:py-3 rounded-md hover:bg-primary2/90 transition-colors"
           >
             Get Started
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1"
+            />
           </button>
-          <button className="group flex items-center gap-2 border border-white hover:bg-white hover:text-black text-white font-semibold px-6 py-3 rounded-md transition-colors">
+
+          <button className="group flex items-center gap-2 border border-white hover:bg-white hover:text-black text-white font-semibold text-sm sm:text-base px-4 sm:px-6 py-2.5 sm:py-3 rounded-md transition-colors">
+            <FontAwesomeIcon
+              icon={faPlayCircle}
+              className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white group-hover:text-black"
+            />
             Watch Video
           </button>
         </div>
@@ -685,15 +686,16 @@ export default function HeroCarousel() {
 
       {/* Image Content - Right Side */}
       <div className="flex-1 flex justify-center relative">
-        <div className="w-full max-w-md xl:max-w-lg aspect-[3/4] relative">
-          <Image
-            src={image}
-            alt={`${title} ${subtitle}`}
-            fill
-            priority
-            className="object-contain rounded-lg"
-          />
-        </div>
+        <div className="w-4/5 sm:w-3/4 md:w-full max-w-[220px] sm:max-w-sm md:max-w-md xl:max-w-md aspect-[3/4] relative">
+  <Image
+    src={image}
+    alt={`${title} ${subtitle}`}
+    fill
+    priority
+    className="object-contain rounded-lg"
+  />
+</div>
+
 
         {/* Social Icons */}
         <div className="hidden lg:flex absolute right-0 lg:-right-12 top-1/2 -translate-y-1/2 flex-col gap-5 z-20">
@@ -702,8 +704,8 @@ export default function HeroCarousel() {
               key={i}
               src={icon}
               alt="Social"
-              width={24}
-              height={24}
+              width={28}
+              height={28}
               className="hover:scale-110 transition-transform cursor-pointer"
             />
           ))}
@@ -713,15 +715,15 @@ export default function HeroCarousel() {
   </div>
 
   {/* Dot Indicators */}
-  <div className="relative z-10 w-full max-w-7xl mx-auto mt-8 lg:mt-12">
-    <div className="flex justify-center gap-3">
+  <div className="relative mb-5 z-10 w-full max-w-7xl mx-auto mt-6 sm:mt-8 lg:mt-12">
+    <div className="flex justify-center gap-2 sm:gap-3">
       {slides.map((_, slideIndex) => (
         <button
           key={slideIndex}
           onClick={() => setIndex(slideIndex)}
-          className={`w-3 h-3 rounded-full transition-all ${
+          className={`h-2 w-2 sm:h-3 sm:w-3 rounded-full transition-all ${
             index === slideIndex
-              ? "bg-primary2 w-6"
+              ? "bg-primary2 w-5 sm:w-6"
               : "bg-white/50 hover:bg-white/70"
           }`}
         />
@@ -729,10 +731,27 @@ export default function HeroCarousel() {
     </div>
   </div>
 
-  {/* Hidden block to prevent purge */}
-  <div className="hidden">
-    lg:flex-row flex-col justify-center items-center gap-12 xl:gap-16 space-y-6 lg:space-y-8
-  </div>
+        {showForm && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-[9999] p-4">
+          <div
+            className="relative w-full max-w-2xl bg-secondary1 rounded-xl shadow-2xl overflow-y-auto"
+            style={{ maxHeight: "95vh" }}
+          >
+            <button
+              onClick={() => setShowForm(false)}
+              className="absolute top-4 right-4 z-10 cursor-pointer text-primary1 hover:text-primary2 text-6xl font-bold transition-colors duration-200"
+              aria-label="Close form"
+            >
+              &times;
+            </button>
+            <div className="p-6 md:p-8 w-full">
+              <GetStartedForm />
+            </div>
+          </div>
+        </div>
+      )}
 </section>
+
+
   );
 }
