@@ -1,14 +1,13 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}"
-  ],
-  safelist: [
-    "min-h-[300px]",
-    "md:min-h-[550px]",
-    "max-w-[440px]"
-  ],
+  // Disable purging completely
+  purge: false,
+  
+  // Or if you're using Tailwind v3+ syntax:
+  content: false,
+  
+  // Rest of your Tailwind config
   theme: {
     extend: {},
   },
   plugins: [],
-};
+}
