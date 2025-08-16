@@ -40,7 +40,6 @@ const Navbar = () => {
 
   return (
     <div className="w-full bg-gradient1 shadow-lg p-0 fixed top-0 left-0 z-50">
-
       {/* Mobile Header (visible only on mobile) */}
       <div className="md:hidden flex justify-between items-center px-4 py-3 bg-primary2">
         <Link href="/" className="relative h-16 w-16">
@@ -176,19 +175,9 @@ const Navbar = () => {
             className="relative w-full max-w-2xl bg-secondary1 rounded-xl shadow-2xl overflow-y-auto"
             style={{ maxHeight: "95vh" }}
           >
-            {/* Extra Large Red Close Button */}
-            <button
-              onClick={() => setShowForm(false)}
-              className="absolute top-4 right-4 z-10 cursor-pointer text-primary1 hover:text-primary2 text-6xl font-bold transition-colors duration-200 focus:outline-none"
-              style={{ width: "60px", height: "60px", lineHeight: "60px" }}
-              aria-label="Close form"
-            >
-              &times;
-            </button>
-
             {/* Form Content */}
             <div className="p-6 md:p-8 w-full">
-              <GetStartedForm />
+              <GetStartedForm onClose={() => setShowForm(false)} />
             </div>
           </div>
         </div>

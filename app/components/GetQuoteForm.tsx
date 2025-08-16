@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import PhoneInput from "react-phone-number-input";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const GetStartedForm = () => {
+const GetStartedForm = ({ onClose }: { onClose?: () => void }) => {
   const [phone, setPhone] = useState("");
 
   const services = [
@@ -32,6 +34,17 @@ const GetStartedForm = () => {
   return (
     <div className="w-full">
       <form className="space-y-3">
+
+         <button
+      type="button"
+      onClick={onClose}
+      className="absolute top-4 right-4 text-primary2 font-bold transition"
+    >
+      <FontAwesomeIcon
+        icon={faXmark}
+        className="w-5 h-5 sm:w-6 sm:h-6"
+      />
+    </button>
         {/* Header */}
         <div className="text-center">
           <h2 className="text-2xl font-bold text-neutral2">
