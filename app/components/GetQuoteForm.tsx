@@ -33,7 +33,7 @@ const GetStartedForm = ({ onClose }: { onClose?: () => void }) => {
 
   return (
     <div className="w-full">
-      <form className="space-y-2">
+      <form className="space-y-1">
 
          <button
       type="button"
